@@ -1,0 +1,61 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.next-page{
+    position: absolute;
+    width: 200px;
+    padding: 4px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    font-weight: 900;
+    font-size: 125%;
+    font-family: "Old Newspapers Sung", serif;
+    bottom: 1%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: #ffffffeb;
+    color: black;
+}
+
+.point_active {
+    pointer-events: auto;
+}
+
+@font-face {
+    font-family: 'MuseoModerno-Black';
+    src: url('../font/MuseoModerno-Black.ttf');
+}
+
+@font-face {
+    font-family: 'MuseoModerno-Bold';
+    src: url('../font/MuseoModerno-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'MuseoModerno-Regular';
+    src: url('../font/MuseoModerno-Regular.ttf');
+}
+
+/*@font-face {*/
+/*    font-family: 'Microsoft YaHei';*/
+/*    src: url('../font/msyh.ttc');*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'Old Newspapers Sung';*/
+/*    src: url('../font/Old-Newspapers-Sung_1.woff');*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'ons';*/
+/*    src: url('../font/老报宋.ttf');*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'mlgkt';*/
+/*    src: url('../font/弥勒古楷体.ttf');*/
+/*}*/

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/wlq.css">
+
+    <!--  libs  -->
+    <script src="js/D3/d3.js"></script>
+    <script src="js/JQuery/jquery-3.4.1.min.js"></script>
+
+    <!--  components  -->
+    <script src="resource/data/data_experiment.js"></script>
+    <script src="components/global.js"></script>
+    <script src="components/flowPin.js"></script>
+    <script src="components/home.js"></script>
+    <script src="components/home2.js"></script>
+    <script src="components/experiment.js"></script>
+    <script src="components/navigationBar.js"></script>
+    <script src="components/micro.js"></script>
+
+</head>
+<body style="background-color:#001429;" onselectstart="return false">
+
+<div style="text-align: -webkit-center;">
+    <div id="widthDiv" style="width: 100%; position: fixed; left: 0; right: 0; margin: auto; top: 0; display: grid;">
+        <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
+            <g id="home">
+                <g id="home_sky"></g>
+                <g id="home_moon" transform="scale(0.3) translate(4000, 1500)"></g>
+                <g id="home_buildings"></g>
+                <g id="home_mark"></g>
+                <g id="home_title" opacity="0" transform="translate(0, 100)"></g>
+                <g id="home_description"></g>
+            </g>
+        </svg>
+        <svg viewbox="0 0 1920 1380" width=100% style="background: #001429">
+            <g id="home2">
+                <g id="home2_bg"></g>
+                <g id="home2_light" transform="scale(1, 0)"></g>
+                <g id="home2_frontraw_trees"></g>
+                <g id="home2_grass"></g>
+                <g id="home2_canopy"></g>
+                <g id="home2_anima"></g>
+                <g id="home2_shade"></g>
+                <g id="home2_plant_3" opacity="0"></g>
+                <g id="home2_plant_2" opacity="0"></g>
+                <g id="home2_plant_1" opacity="0"></g>
+                <g id="home2_soc"></g>
+                <g id="home2_leaves"></g>
+            </g>
+
+        </svg>
+        <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
+            <g id="experiment">
+                <g id="experiment_ecoballs"></g>
+                <g id="experiment_anima"></g>
+                <g id="experiment_ball"></g>
+                <g id="experiment_ball_surface" style="pointer-events: none;"></g>
+                <g id="experiment_line"></g>
+                <g id="experiment_legend"></g>
+                <g id="experiment_proportions"></g>
+                <g id="experiment_timeline"></g>
+                <g id="experiment_description1" opacity="1"></g>
+                <g id="experiment_description2" opacity="0"></g>
+                <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
+            </g>
+        </svg>
+        <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
+            <g id="micro">
+                <g id="micro_sky"></g>
+                <g id="micro_moon"></g>
+                <g id="micro_mountain"></g>
+                <g id="micro_shadows"></g>
+                <g id="micro_backrowplants"></g>
+                <g id="micro_backrowoftrees"></g>
+                <g id="micro_backrowleaf2"></g>
+                <g id="micro_backrowleaf1"></g>
+                <g id="micro_backrowbranch3"></g>
+                <g id="micro_backrowbranch2"></g>
+                <g id="micro_backrowbranch1"></g>
+                <g id="micro_ground"></g>
+                <g id="micro_stones"></g>
+                <g id="micro_middlerowtrees"></g>
+                <g id="micro_middlerowleaf6"></g>
+                <g id="micro_middlerowleaf5"></g>
+                <g id="micro_middlerowleaf4"></g>
+                <g id="micro_middlerowleaf3"></g>
+                <g id="micro_middlerowleaf2"></g>
+                <g id="micro_middlerowleaf1"></g>
+                <g id="micro_middlerowbranch10"></g>
+                <g id="micro_middlerowbranch9"></g>
+                <g id="micro_middlerowbranch8"></g>
+                <g id="micro_middlerowbranch7"></g>
+                <g id="micro_middlerowbranch6"></g>
+                <g id="micro_middlerowbranch5"></g>
+                <g id="micro_middlerowbranch4"></g>
+                <g id="micro_middlerowbranch3"></g>
+                <g id="micro_middlerowbranch2"></g>
+                <g id="micro_middlerowbranch1"></g>
+                <g id="micro_frontrowtrees"></g>
+                <g id="micro_frontrowleaf6"></g>
+                <g id="micro_frontrowleaf5"></g>
+                <g id="micro_frontrowleaf4"></g>
+                <g id="micro_frontrowleaf3"></g>
+                <g id="micro_frontrowleaf2"></g>
+                <g id="micro_frontrowleaf1"></g>
+                <g id="micro_frontrowbranch10"></g>
+                <g id="micro_frontrowbranch9"></g>
+                <g id="micro_frontrowbranch8"></g>
+                <g id="micro_frontrowbranch7"></g>
+                <g id="micro_frontrowbranch6"></g>
+                <g id="micro_frontrowbranch5"></g>
+                <g id="micro_frontrowbranch4"></g>
+                <g id="micro_frontrowbranch3"></g>
+                <g id="micro_frontrowbranch2"></g>
+                <g id="micro_frontrowbranch1"></g>
+                <g id="micro_soil"></g>
+                <g id="micro_timeline"></g>
+                <g id="micro_regressioncurve"></g>
+                <g id="micro_line"></g>
+                <g id="micro_legend"></g>
+                <g id="micro_mark"></g>
+            </g>
+        </svg>
+    </div>
+</div>
+
+<div id="flowPin" style="pointer-events: none; position: fixed; transform: translate(0px, 0px)scale(1);">
+    <svg width="1920" viewBox="0 0 1920 1080" fill="none" opacity="1" style="transform: translate(0px, 0px);left: 0px;top: 0px;position: absolute;">
+        <g id="experiment_navigation_bar" opacity="0">
+        </g>
+        <g id="home_voice" class="point_active"></g>
+        <g id="home_languages" class="point_active"></g>
+        <g id="home_help" class="point_active"></g>
+        <g id="home_about" class="point_active"></g>
+        <g id="home_logo" class="point_active" opacity="0" transform="translate(0, -100)"></g>
+        <g id="card_litter" opacity="0" transform="translate(0, 0)"></g>
+        <g id="card_nutrients" opacity="0" transform="translate(0, 0)"></g>
+        <g id="card_organ_f" opacity="0" transform="translate(0, 0)"></g>
+        <g id="card_organ_m" opacity="0" transform="translate(0, 0)"></g>
+        <g id="card_som" opacity="0" transform="translate(0, 0)"></g>
+    </svg>
+
+</div>
+</body>
+<script>
+    $("#card_litter").load("resource/experiment/card/Litter.svg");
+    $("#card_nutrients").load("resource/experiment/card/Nutrients.svg");
+    $("#card_organ_f").load("resource/experiment/card/PlantOrgansF.svg");
+    $("#card_organ_m").load("resource/experiment/card/PlantOrgansM.svg");
+    $("#card_som").load("resource/experiment/card/SOM.svg");
+
+    $("#home_sky").load("resource/home/05-Sky.svg", () => initHome());
+    $("#home_moon").load("resource/home/04-Moon.svg", () => initHome());
+    $("#home_buildings").load("resource/home/03-Buildings.svg", () => initHome());
+    $("#home_mark").load("resource/home/02-Mark.svg", () => initHome());
+    $("#home_voice").load("resource/home/01-Voice.svg", () => initHome());
+    $("#home_title").load("resource/home/01-Title.svg", () => initHome());
+    $("#home_logo").load("resource/home/01-Logo.svg", () => initHome());
+    $("#home_languages").load("resource/home/01-Languages.svg", () => initHome());
+    $("#home_help").load("resource/home/01-Help.svg", () => initHome());
+    $("#home_description").load("resource/home/01-Description.svg", () => initHome());
+    $("#home_about").load("resource/home/01-About.svg", () => initHome());
+
+    $("#home2_bg").load("resource/home2/BG.svg", () => initHome2());
+    $("#home2_light").load("resource/home2/03-Light.svg", () => initHome2());
+    $("#home2_frontraw_trees").load("resource/home2/02-FrontrawTrees.svg", () => initHome2());
+    $("#home2_grass").load("resource/home2/01-Grass.svg", () => initHome2());
+    $("#home2_canopy").load("resource/home2/01-Canopy.svg", () => initHome2());
+    $("#home2_shade").load("resource/home_plant/02-Shade.svg", () => initHome2());
+    $("#home2_plant_1").load("resource/home_plant/01-P1.svg", () => initHome2());
+    $("#home2_plant_2").load("resource/home_plant/01-P2.svg", () => initHome2());
+    $("#home2_plant_3").load("resource/home_plant/01-P3.svg", () => initHome2());
+    // $("#home_about").load("resource/home/01-About.svg", () => initHome());
+
+
+    $("#experiment_ecoballs").load("resource/experiment/11-Ecoballs.svg", () => initExperiment());
+    $("#experiment_ball").load("resource/experiment/ball/5yr.svg", () => initExperiment());
+    $("#experiment_line").load("resource/experiment/line/08-Values-5yr.svg", () => initExperiment());
+    $("#experiment_legend").load("resource/experiment/09-Legend.svg", () => initExperiment());
+    $("#experiment_ball_surface").load("resource/experiment/08-ReflectiveSurface.svg", () => initExperiment());
+    $("#experiment_proportions").load("resource/experiment/07-Proportions.svg", () => initExperiment());
+    $("#experiment_timeline").load("resource/experiment/06-Timeline.svg", () => initExperiment());
+    $("#experiment_description1").load("resource/experiment/05-Description1.svg", () => initExperiment());
+    $("#experiment_description2").load("resource/experiment/05-Description2.svg");
+    $("#experiment_general_trends").load("resource/experiment/04-GeneralTrends.svg", () => initExperiment());
+    $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg");
+
+    $("#micro_sky").load("resource/micro/16-Sky.svg");
+    $("#micro_moon").load("resource/micro/15-Moon.svg");
+    $("#micro_mountain").load("resource/micro/14-Mountain.svg");
+    $("#micro_shadows").load("resource/micro/13-Shadows.svg");
+    $("#micro_backrowplants").load("resource/micro/12-Backrowplants.svg");
+    $("#micro_backrowoftrees").load("resource/micro/12-Backrowoftrees.svg");
+    $("#micro_backrowleaf2").load("resource/micro/12-BackrowLeaf2.svg");
+    $("#micro_backrowleaf1").load("resource/micro/12-BackrowLeaf1.svg");
+    $("#micro_backrowbranch3").load("resource/micro/12-BackrowBranch3.svg");
+    $("#micro_backrowbranch2").load("resource/micro/12-BackrowBranch2.svg");
+    $("#micro_backrowbranch1").load("resource/micro/12-BackrowBranch1.svg");
+    $("#micro_ground").load("resource/micro/10-Ground.svg");
+    $("#micro_stones").load("resource/micro/09-Stones.svg");
+    $("#micro_middlerowtrees").load("resource/micro/08-Middlerowtrees.svg");
+    for (let i = 1; i <= 6; i++) {
+        $("#micro_middlerowleaf"+i).load("resource/micro/08-MiddlerowLeaf" + i + ".svg");
+    }
+    for (let i = 1; i <= 10; i++) {
+        $("#micro_middlerowbranch"+i).load("resource/micro/08-MiddlerowBranch" + i + ".svg");
+    }
+    $("#micro_frontrowtrees").load("resource/micro/07-Frontrowtrees.svg");
+    for (let i = 1; i <= 6; i++) {
+        $("#micro_frontrowleaf"+i).load("resource/micro/07-FrontrowLeaf" + i + ".svg");
+    }
+    for (let i = 1; i <= 9; i++) {
+        $("#micro_frontrowbranch"+i).load("resource/micro/07-FrontrowBranch" + i + ".svg");
+    }
+    $("#micro_soil").load("resource/micro/06-Soil.svg");
+    $("#micro_timeline").load("resource/micro/05-Timeline.svg", () => initMicro());
+    $("#micro_regressioncurve").load("resource/micro/04-RegressionCurve.svg");
+    $("#micro_line").load("resource/micro/03-Line.svg");
+    $("#micro_legend").load("resource/micro/02-Legend.svg");
+    $("#micro_mark").load("resource/micro/01-Mark.svg");
+    console.log("finish")
+    // $(`#page1_timeline`).load("resource/Timeline.svg");
+    // $(`#page1_legend`).load("resource/Legend/Legend.svg");
+    // $(`#page1_navigation_bar_logo`).load("resource/NavigationBar/Logo.svg");
+    // $(`#page1_navigation_bar_navigating`).load("resource/NavigationBar/Navigating.svg");
+    // $(`#page1_eco_balls_trends`).load("resource/Ecoballs/Trends/5yr.svg");
+    // $(`#page1_eco_balls_balls`).load("resource/Ecoballs/Balls/5yr.svg");
+    //
+    // var page1_ball_description = $(`#page1_eco_balls_description`);
+    // page1_ball_description.append(
+    //     $.ajax({url:"resource/Ecoballs/Description/GeneralTrends.svg",async:false}).responseText,
+    //     $.ajax({url:"resource/Ecoballs/Description/Note1.svg",async:false}).responseText,
+    //     // $.ajax({url:"resource/Ecoballs/Description/Note2.svg",async:false}).responseText,
+    //     $.ajax({url:"resource/Ecoballs/Description/TrendDescriptions.svg",async:false}).responseText);
+
+    // var page1_description = $(`#page1_description`);
+    // page1_ball_description.append(
+    //     // $.ajax({url:"resource/Description/Optimal.svg",async:false}).responseText,
+    //     $.ajax({url:"resource/Description/Soil.svg",async:false}).responseText);
+
+
+</script>
+</html>
