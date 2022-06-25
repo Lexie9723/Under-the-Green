@@ -12,7 +12,16 @@ function initMacro() {
     if (initial || duringInitial) return;
     duringInitial = true;
     // d3.select("#Macro_moon").transition().duration(1000).attr("transform", "scale(0.3) translate(4000, 500)");
-    // d3.select("#Macro_logo").transition().duration(1000).attr("opacity", 1).attr("transform", "translate(0, 0)");
+    d3.select("#macro_text_1")
+      .transition()
+      .duration(1000)
+      .attr("opacity", 1)
+      .attr("transform", "translate(0, 0)");
+    d3.select("#macro_text_2")
+      .transition()
+      .duration(1000)
+      .attr("opacity", 1)
+      .attr("transform", "translate(0, 0)");
     // d3.select("#Macro_title").transition().duration(1000).attr("opacity", 1).attr("transform", "translate(0, -30)")
     //     .on('end', ()=>{
     //         d3.select("#Macro_title").transition().duration(300).attr("transform", "translate(0, 0)").on('end', ()=>{
