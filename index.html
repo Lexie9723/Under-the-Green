@@ -17,7 +17,10 @@
     <script src="components/flowPin.js"></script>
     <script src="components/home.js"></script>
     <script src="components/home2.js"></script>
-    <script src="components/macro.js"></script>
+    <script src="components/home3.js"></script>
+    <script src="components/macro1.js"></script>
+    <script src="components/macro2.js"></script>
+    <script src="components/macro3.js"></script>
     <script src="components/experiment.js"></script>
     <script src="components/navigationBar.js"></script>
     <script src="components/micro.js"></script>
@@ -28,8 +31,11 @@
 
     <div style="text-align: -webkit-center;">
         <div class="videos" style="width: 100%;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto; ">
-            <video id="home_audio" width="100%" height="100%" muted style="display: none;">
+            <video id="home3_audio" width="100%" height="100%" muted style="display: none;">
                 <source src="./resource/audio/HomePage_5.mp4" type="video/mp4">
+            </video>
+            <video id="macro2_audio" width="100%" height="100%" muted style="display: none;">
+                <source src="./resource/audio/Macro.mp4" type="video/mp4">
             </video>
         </div>
         <div id="widthDiv"
@@ -60,17 +66,30 @@
                     <g id="home2_leaves"></g>
                 </g>
             </svg>
-            <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
-                <text id="macro_text_1" x="150" y="500" fill="#76d8e5"
-                    style="font-family: 'MuseoModerno-Regular';font-size: 42px;opacity:0;">let's
-                    first look at
-                    how Hunan in china has contributed to the carbon
-                    cycle process</text>
-                <text id="macro_text_2" x="440" y="580" fill="#76d8e5"
-                    style="font-family: 'MuseoModerno-Regular';font-size: 42px;opacity:0;">through
-                    forest
-                    management from 1996 to 2020.</text>
-                <g id="macro">
+            <svg id="svg_home3" viewbox="0 0 1920 1080" width=100%
+                style="background: transparent;overflow: hidden;"></svg>
+            <svg id="svg_macro1" viewbox="0 0 1920 1080" width=100% style="background: #001429">
+                <g id="macro_1" opacity="1">
+                    <text id="macro_1_text_1" x="150" y="500" fill="#76d8e5"
+                        style="font-family: 'MuseoModerno-Regular';font-size: 42px;">let's
+                        first look at
+                        how Hunan in china has contributed to the carbon
+                        cycle process</text>
+                    <text id="macro_1_text_2" x="440" y="580" fill="#76d8e5"
+                        style="font-family: 'MuseoModerno-Regular';font-size: 42px;">through
+                        forest
+                        management from 1996 to 2020.</text>
+                </g>
+            </svg>
+            <svg id="svg_macro2" viewbox="0 0 1920 1080" width=100% style="background: transparent;overflow: hidden">
+                <g id="macro2">
+                    <g id="macro_2_text_1" transform="translate(0, -110)" opacity="0"></g>
+                    <g id="macro_2_text_2" transform="translate(0, 140)" opacity="0"></g>
+                </g>
+            </svg>
+            <svg id="svg_macro3" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
+                <g id="macro3">
+                    <!-- 跷跷板 -->
                 </g>
             </svg>
             <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
@@ -197,9 +216,19 @@
     $("#home2_plant_3").load("resource/home_plant/01-P3.svg", () => initHome2());
     // $("#home_about").load("resource/home/01-About.svg", () => initHome());
 
-    // macro 湖南省地图区域
-    // initMacro();
-    // $("#macro").load("resource/home/01-Title.svg", () => initMacro());
+    // 跷跷板
+    initHome3();
+
+    // macro1 过度界面
+    initMacro1();
+    // macro2 湖南省地图区域
+    $("#macro_2_text_1").load("resource/macro/macro2/FiveRegins.svg", () => initMacro2());
+    $("#macro_2_text_2").load("resource/macro/macro2/Since2001.svg", () => initMacro2());
+
+    // macro3 花盘界面
+    initMacro3();
+
+
 
 
     $("#experiment_ecoballs").load("resource/experiment/11-Ecoballs.svg", () => initExperiment());

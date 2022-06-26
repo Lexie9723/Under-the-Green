@@ -272,27 +272,6 @@ function initHome2() {
     .attr("opacity", 0)
     .attr("class", "bug");
 
-  let palyVideo = function () {
-    $("#svg_home2").css({ background: "transparent" });
-    $("#home2").hide();
-    $("#home_audio").show();
-    const elevideo = document.getElementById("home_audio");
-    elevideo.play();
-    elevideo.addEventListener(
-      "ended",
-      function () {
-        //结束
-        console.log("播放结束");
-        scrollTo(2, 1000, false);
-        setTimeout(() => {
-          $("#home_audio").hide();
-          $("#home2").show();
-        }, 1000);
-        setTimeout(() => showNavigationBar(), 1000);
-      },
-      false
-    );
-  };
   let bugAnima = function () {
     bugGroup
       .attr(
@@ -318,7 +297,7 @@ function initHome2() {
   };
 
   registerScroll(
-    "#home2",
+    "#svg_home2",
     (event, isDown) => {
       // #02f8ff
       if (isDown) {
@@ -339,9 +318,9 @@ function initHome2() {
             setTimeout(() => leafAnima(), 2000);
           }
         } else {
-          palyVideo();
-          // scrollTo(2, 1000, false);
-          // setTimeout(() => showNavigationBar(), 1000);
+          scrollTo(2, 1000, false);
+          initPlayHomeVideo(); //开启跷跷板动画
+          setTimeout(() => showNavigationBar(), 1000);
         }
       } else {
         if (plantStage > 0) {

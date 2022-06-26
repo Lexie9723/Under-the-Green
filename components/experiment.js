@@ -327,7 +327,7 @@ function initExperiment() {
           .attr("transform", `translate(0 ${offY})`);
       } else {
         hideNavigationBar();
-        scrollTo(1, 1000, false);
+        scrollTo(6, 1000, false);
       }
     } else {
       scrollTo(4, 1000, false);
