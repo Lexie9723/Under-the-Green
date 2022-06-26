@@ -1,5 +1,5 @@
 let loadTime = 0;
-const maxLoad = 9;
+const maxLoad = 10;
 function initExperiment() {
   loadTime++;
   if (loadTime < maxLoad) return;

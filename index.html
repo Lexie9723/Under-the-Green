@@ -66,6 +66,10 @@
                     <g id="home2_plant_1" opacity="0"></g>
                     <g id="home2_soc"></g>
                     <g id="home2_leaves"></g>
+                    <g id="home2_text1" opacity="0"></g>
+                    <g id="home2_text2" opacity="0"></g>
+                    <g id="home2_text3" opacity="0"></g>
+                    <g id="home2_text4" opacity="0"></g>
                 </g>
             </svg>
             <svg id="svg_home3" viewbox="0 0 1920 1080" width=100%
@@ -94,24 +98,23 @@
                     <!-- 跷跷板 -->
                 </g>
             </svg>
-            <svg id="svg_micro1" viewbox="0 0 1920 1080" width=100% preserveAspectRatio="xMaxYMax meet"
-                style="background: 001429;overflow: hidden">
+            <svg id="svg_micro1" viewbox="0 0 1920 1080" width=100% height="100%"
+                style="background: #001429;overflow: hidden">
                 <g id="micro1">
-
-                    <image id="micro1_bg" href="./resource/micro/micro1/micro1Bg.jpg" style="width: 100%; height: 100%;"
-                        y="-300" transform="translate(0, 0)" />
-                    <g id="micro1_modal" style="width: 1920px; height: 1080px;">
+                    <image id="micro1_bg" href="./resource/micro/micro1/micro1Bg.jpg" x="0" y="-300" width="100%"
+                        height="1380" preserveAspectRatio="none meet" />
+                    <g id="micro1_modal" style="width: 100%; height: 100%;" transform="translate(0, -300)">
                     </g>
                     <g id="micro1_text1"></g>
                     <g id="micro1_text2" opacity="0"></g>
                 </g>
             </svg>
-            <svg id="svg_micro2" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
+            <svg id="svg_micro2" viewbox="0 0 1920 1080" width=100% style="background: #001429;overflow: hidden">
                 <g id="micro2">
                     <g id="micro2_bg"></g>
                 </g>
             </svg>
-            <svg id="svg_micro3" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
+            <svg id="svg_micro3" viewbox="0 0 1920 1080" width=100% style="background: #001429;overflow: hidden">
                 <g id="micro3" opacity="0">
                     <text id="micro3_text_1" x="338" y="500" fill="rgba(4,225,253,1)"
                         style="font-family: 'MuseoModerno-Regular';font-size: 42px;">let's
@@ -191,6 +194,7 @@
                     <g id="experiment_description1" opacity="1"></g>
                     <g id="experiment_description2" opacity="0"></g>
                     <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
+                    <g id="experiment_text1"></g>
                 </g>
             </svg>
         </div>
@@ -283,6 +287,7 @@
     $("#experiment_description2").load("resource/experiment/05-Description2.svg");
     $("#experiment_general_trends").load("resource/experiment/04-GeneralTrends.svg", () => initExperiment());
     $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg");
+    $("#experiment_text1").load("resource/micro/micro4/Micro-S1.svg", () => initExperiment());
 
     $("#micro_sky").load("resource/micro/16-Sky.svg");
     $("#micro_moon").load("resource/micro/15-Moon.svg");

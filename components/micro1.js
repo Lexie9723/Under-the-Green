@@ -5,14 +5,18 @@ let micro1TextNum = 0;
 
 function initAnimMicro1() {
   if (micro1TextNum === 2) return;
-  //   d3.select("#micro1_bg")
-  //     .transition()
-  //     .duration(1000)
-  //     .attr("transform", "translate(0, -200)");
+  d3.select("#micro1_bg")
+    .transition()
+    .duration(1000)
+    .attr("transform", "translate(0, -200)");
   d3.select("#micro1_bg")
     .transition()
     .delay(1000)
-    .attr("transform", "translate(0, 100)");
+    .attr("transform", "translate(0, 0)");
+  //   d3.select("#micro1_modal")
+  //     .transition()
+  //     .delay(1000)
+  //     .attr("transform", "translate(0, 0)");
   d3.select("#micro1_text1")
     .transition()
     .duration(1000)
