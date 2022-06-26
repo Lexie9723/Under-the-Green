@@ -24,17 +24,19 @@
     <script src="components/experiment.js"></script>
     <script src="components/navigationBar.js"></script>
     <script src="components/micro.js"></script>
-
+    <script src="components/micro1.js"></script>
+    <script src="components/micro2.js"></script>
+    <script src="components/micro3.js"></script>
 </head>
 
 <body style="background-color:#001429;" onselectstart="return false">
 
     <div style="text-align: -webkit-center;">
         <div class="videos" style="width: 100%;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto; ">
-            <video id="home3_audio" width="100%" height="100%" muted style="display: none;">
+            <video id="home3_audio" width="100%" height="100%" muted controlsList="nodownload" style="display: none;">
                 <source src="./resource/audio/HomePage_5.mp4" type="video/mp4">
             </video>
-            <video id="macro2_audio" width="100%" height="100%" muted style="display: none;">
+            <video id="macro2_audio" width="100%" height="100%" muted controlsList="nodownload" style="display: none;">
                 <source src="./resource/audio/Macro.mp4" type="video/mp4">
             </video>
         </div>
@@ -69,13 +71,13 @@
             <svg id="svg_home3" viewbox="0 0 1920 1080" width=100%
                 style="background: transparent;overflow: hidden;"></svg>
             <svg id="svg_macro1" viewbox="0 0 1920 1080" width=100% style="background: #001429">
-                <g id="macro_1" opacity="1">
-                    <text id="macro_1_text_1" x="150" y="500" fill="#76d8e5"
+                <g id="macro_1" opacity="0">
+                    <text id="macro_1_text_1" x="150" y="500" fill="rgba(4,225,253,1)"
                         style="font-family: 'MuseoModerno-Regular';font-size: 42px;">let's
                         first look at
                         how Hunan in china has contributed to the carbon
                         cycle process</text>
-                    <text id="macro_1_text_2" x="440" y="580" fill="#76d8e5"
+                    <text id="macro_1_text_2" x="440" y="580" fill="rgba(4,225,253,1)"
                         style="font-family: 'MuseoModerno-Regular';font-size: 42px;">through
                         forest
                         management from 1996 to 2020.</text>
@@ -92,22 +94,34 @@
                     <!-- 跷跷板 -->
                 </g>
             </svg>
-            <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
-                <g id="experiment">
-                    <g id="experiment_ecoballs"></g>
-                    <g id="experiment_anima"></g>
-                    <g id="experiment_ball"></g>
-                    <g id="experiment_ball_surface" style="pointer-events: none;"></g>
-                    <g id="experiment_line"></g>
-                    <g id="experiment_legend"></g>
-                    <g id="experiment_proportions"></g>
-                    <g id="experiment_timeline"></g>
-                    <g id="experiment_description1" opacity="1"></g>
-                    <g id="experiment_description2" opacity="0"></g>
-                    <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
+            <svg id="svg_micro1" viewbox="0 0 1920 1080" width=100% preserveAspectRatio="xMaxYMax meet"
+                style="background: 001429;overflow: hidden">
+                <g id="micro1">
+
+                    <image id="micro1_bg" href="./resource/micro/micro1/micro1Bg.jpg" style="width: 100%; height: 100%;"
+                        y="-300" transform="translate(0, 0)" />
+                    <g id="micro1_modal" style="width: 1920px; height: 1080px;">
+                    </g>
+                    <g id="micro1_text1"></g>
+                    <g id="micro1_text2" opacity="0"></g>
                 </g>
             </svg>
-            <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
+            <svg id="svg_micro2" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
+                <g id="micro2">
+                    <g id="micro2_bg"></g>
+                </g>
+            </svg>
+            <svg id="svg_micro3" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
+                <g id="micro3" opacity="0">
+                    <text id="micro3_text_1" x="338" y="500" fill="rgba(4,225,253,1)"
+                        style="font-family: 'MuseoModerno-Regular';font-size: 42px;">let's
+                        look at the process of fir trees mingling and exchanging</text>
+                    <text id="micro3_text_2" x="585" y="580" fill="rgba(4,225,253,1)"
+                        style="font-family: 'MuseoModerno-Regular';font-size: 42px;">nutrients and carbon during
+                        growth.</text>
+                </g>
+            </svg>
+            <svg id="svg_micro4" viewbox="0 0 1920 1080" width=100% style="background: #001429">
                 <g id="micro">
                     <g id="micro_sky"></g>
                     <g id="micro_moon"></g>
@@ -164,6 +178,21 @@
                     <g id="micro_mark"></g>
                 </g>
             </svg>
+            <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
+                <g id="experiment">
+                    <g id="experiment_ecoballs"></g>
+                    <g id="experiment_anima"></g>
+                    <g id="experiment_ball"></g>
+                    <g id="experiment_ball_surface" style="pointer-events: none;"></g>
+                    <g id="experiment_line"></g>
+                    <g id="experiment_legend"></g>
+                    <g id="experiment_proportions"></g>
+                    <g id="experiment_timeline"></g>
+                    <g id="experiment_description1" opacity="1"></g>
+                    <g id="experiment_description2" opacity="0"></g>
+                    <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
+                </g>
+            </svg>
         </div>
     </div>
 
@@ -215,7 +244,7 @@
     $("#home2_plant_2").load("resource/home_plant/01-P2.svg", () => initHome2());
     $("#home2_plant_3").load("resource/home_plant/01-P3.svg", () => initHome2());
     // $("#home_about").load("resource/home/01-About.svg", () => initHome());
-
+    /*  */
     // 跷跷板
     initHome3();
 
@@ -228,8 +257,20 @@
     // macro3 花盘界面
     initMacro3();
 
+    // micro1 过度界面,森林蒙层
+    // $("#micro1_bg").load("resource/micro/micro1/micro1Bg.jpg", () => initMicro1());
+    $("#micro1_modal").load("resource/micro/micro1/MicroModal.svg", () => initMicro1());
+    $("#micro1_text1").load("resource/micro/micro1/MicroTxt1.svg", () => initMicro1());
+    $("#micro1_text2").load("resource/micro/micro1/MicroTxt2.svg", () => initMicro1());
 
+    // micro2 三个圆圈界面  micro2_bg
+    // initMicro2();
+    $("#micro2_bg").load("resource/micro/micro2/MicroArticulation.svg", () => initMicro2());
 
+    // micro3 过度界面 文字描述
+    initMicro3();
+
+    /*  */
 
     $("#experiment_ecoballs").load("resource/experiment/11-Ecoballs.svg", () => initExperiment());
     $("#experiment_ball").load("resource/experiment/ball/5yr.svg", () => initExperiment());

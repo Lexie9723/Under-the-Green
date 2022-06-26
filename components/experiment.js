@@ -327,11 +327,9 @@ function initExperiment() {
           .attr("transform", `translate(0 ${offY})`);
       } else {
         hideNavigationBar();
-        scrollTo(6, 1000, false);
+        scrollTo(9, 1000, false);
       }
     } else {
-      scrollTo(4, 1000, false);
-      // scrollTo(3, 1000, false)
     }
   });
   updateBall();

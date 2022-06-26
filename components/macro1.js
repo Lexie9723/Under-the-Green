@@ -5,6 +5,7 @@ function initAnimMacro1() {
   d3.select("#macro_1")
     .transition()
     .duration(1000)
+    .attr("opacity", 1)
     .attr("transform", "translate(0, 40)");
 }
 function initMacro1() {

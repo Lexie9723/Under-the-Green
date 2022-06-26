@@ -13,6 +13,7 @@ function initMacro3() {
     if (isDown) {
       scrollTo(6, 1000, false);
       setTimeout(() => showLight(), 500);
+      initAnimMicro1();
     } else {
       scrollTo(4, 1000, false);
       d3.select("#macro2_audio")
