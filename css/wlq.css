@@ -1,7 +1,6 @@
 body::-webkit-scrollbar {
     display: none;
 }
-
 .next-page{
     position: absolute;
     width: 200px;
@@ -40,6 +39,16 @@ body::-webkit-scrollbar {
     src: url('../font/MuseoModerno-Regular.ttf');
 }
 
+body {
+    font-family: 'MuseoModerno-Regular';
+}
+video::-webkit-media-controls {
+    overflow: hidden !important;
+}
+video::-webkit-media-controls-enclosure {
+    width: calc(100% + 32px);
+    margin-left: auto;
+}
 /*@font-face {*/
 /*    font-family: 'Microsoft YaHei';*/
 /*    src: url('../font/msyh.ttc');*/
