@@ -33,7 +33,6 @@ function initHome3() {
   console.log("load home3");
 
   registerScroll("#svg_home3", (event, isDown) => {
-    console.log(isDown);
     if (playHomeVideEnded) {
       if (isDown) {
         scrollTo(3, 1000, false);

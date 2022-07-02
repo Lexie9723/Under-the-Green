@@ -16,7 +16,6 @@ function initMacro1() {
   console.log("load Macro1");
 
   registerScroll("#svg_macro1", (event, isDown) => {
-    console.log(isDown);
     if (isDown) {
       scrollTo(4, 1000, false);
       initAnimMacro2();

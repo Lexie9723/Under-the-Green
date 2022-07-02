@@ -9,7 +9,6 @@ function initMicro2() {
   console.log("load Micro2");
 
   registerScroll("#svg_micro2", (event, isDown) => {
-    console.log(isDown);
     if (isDown) {
       scrollTo(8, 1000, false);
       setTimeout(() => showLight(), 500);

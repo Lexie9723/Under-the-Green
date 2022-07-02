@@ -49,6 +49,23 @@ video::-webkit-media-controls-enclosure {
     width: calc(100% + 32px);
     margin-left: auto;
 }
+
+#macroContainer {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: #001429;
+}
+
+.highlight-year {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /*@font-face {*/
 /*    font-family: 'Microsoft YaHei';*/
 /*    src: url('../font/msyh.ttc');*/

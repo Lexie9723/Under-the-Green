@@ -3,13 +3,12 @@ const maxMacro3 = 1;
 
 function initMacro3() {
   loadMacro3++;
-  console.log("loadMacro3--", loadMacro3);
+  console.log("loadMacro3++", loadMacro3);
   if (loadMacro3 < maxMacro3) return;
 
   console.log("load Macro3");
 
   registerScroll("#svg_macro3", (event, isDown) => {
-    console.log(isDown);
     if (isDown) {
       scrollTo(6, 1000, false);
       setTimeout(() => showLight(), 500);

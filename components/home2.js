@@ -318,7 +318,7 @@ function initHome2() {
             setTimeout(() => leafAnima(), 2000);
           }
         } else {
-          scrollTo(2, 1000, false);
+          scrollTo(2, 1, false);
           initPlayHomeVideo(); //开启跷跷板动画
           setTimeout(() => showNavigationBar(), 1000);
         }

@@ -36,7 +36,6 @@ function initMacro2() {
   console.log("load Macro2");
 
   registerScroll("#svg_macro2", (event, isDown) => {
-    console.log(isDown);
     if (playMacro2VideEnded) {
       if (isDown) {
         scrollTo(5, 1000, false);
