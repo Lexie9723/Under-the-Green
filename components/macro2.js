@@ -11,8 +11,10 @@ let palyMacro2Video = function () {
     "ended",
     function () {
       //结束
-      console.log("播放结束");
+      console.log("palyMacro2Video 播放结束");
       playMacro2VideEnded = true;
+      elevideo.loop = true;
+      elevideo.play();
     },
     false
   );
@@ -24,7 +26,7 @@ function initAnimMacro2() {
     .style("display", "inline-block");
   if (playMacro2VideEnded) return;
   d3.select("#macro_2_text_1").transition().attr("opacity", 1);
-  d3.select("#macro_2_text_2").transition().attr("opacity", 1);
+  d3.select("#macro_2_text_2").transition().attr("opacity", 0);
   palyMacro2Video();
 }
 

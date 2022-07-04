@@ -1,1 +1,20 @@
-<svg id="ac69a326-d56e-48dc-a757-2672eaf2b8c3" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080"><defs><linearGradient id="ac6d4048-e529-466a-a689-d828163eb8f4" x1="959.86" y1="1101.39" x2="959.86" y2="-394.81" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#001429"/><stop offset="1" stop-color="#001429" stop-opacity="0"/></linearGradient><linearGradient id="be512c53-7da4-4d06-8c15-b711b09f1860" x1="960.11" y1="-231.49" x2="960.11" y2="767.56" gradientTransform="translate(1920.21 1098.29) rotate(-180)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#03ffda"/><stop offset="0.2" stop-color="#16cbc9"/><stop offset="0.48" stop-color="#2f88b3"/><stop offset="0.72" stop-color="#4157a3"/><stop offset="0.9" stop-color="#4c389a"/><stop offset="1" stop-color="#502d96"/></linearGradient></defs><rect x="-8.67" y="-3" width="1937.05" height="1108.98" style="fill:url(#ac6d4048-e529-466a-a689-d828163eb8f4)"/><rect x="-8.42" y="-5.34" width="1937.05" height="1108.98" transform="translate(1920.21 1098.29) rotate(180)" style="opacity:0.4;fill:url(#be512c53-7da4-4d06-8c15-b711b09f1860)"/></svg>
+<svg id="ac69a326-d56e-48dc-a757-2672eaf2b8c3" data-name="图层 1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1380">
+    <defs>
+        <linearGradient id="ac6d4048-e529-466a-a689-d828163eb8f4" x1="959.86" y1="1101.39" x2="959.86" y2="-394.81" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#001429"/>
+            <stop offset="1" stop-color="#001429" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="be512c53-7da4-4d06-8c15-b711b09f1860" x1="960.11" y1="-231.49" x2="960.11" y2="767.56" gradientTransform="translate(1920.21 1380.29) rotate(-180)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#03ffda"/>
+            <stop offset="0.2" stop-color="#16cbc9"/>
+            <stop offset="0.48" stop-color="#2f88b3"/>
+            <stop offset="0.72" stop-color="#4157a3"/>
+            <stop offset="0.9" stop-color="#4c389a"/>
+            <stop offset="1" stop-color="#502d96"/>
+        </linearGradient>
+    </defs>
+    <rect x="-10" y="-5" transform="translate(-260 0)" style="fill:url(#ac6d4048-e529-466a-a689-d828163eb8f4);width:2460px;height:1388px"/>
+    <rect x="-10" y="8" transform="translate(2180 1388) rotate(180)" style="opacity:0.4;fill:url(#be512c53-7da4-4d06-8c15-b711b09f1860);width:2460px;height:1388px"/>
+</svg>

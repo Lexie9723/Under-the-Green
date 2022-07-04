@@ -1,8 +1,6 @@
 let loadMacro3 = 0;
 const maxMacro3 = 1;
 
-
-
 function initMacro3() {
   loadMacro3++;
   console.log("loadMacro3++", loadMacro3);
@@ -89,7 +87,7 @@ function initMacro3() {
             }
           }
           // 粉红花瓣的特殊处理，分组合理的话此步骤可省略
-          if (id.includes('Plant-Stocks')) opacityValue = 0.8
+          // if (id.includes('Plant-Stocks')) opacityValue = 0.5
           gsap.to(ele, {
             duration,
             opacity: opacityValue
@@ -101,7 +99,7 @@ function initMacro3() {
         const id = $(ele).attr("id");
         let opacityValue = opacity
         // 粉红花瓣的特殊处理，分组合理的话此步骤可省略
-        if (id.includes('Plant-Stocks')) opacityValue = 0.8
+        // if (id.includes('Plant-Stocks')) opacityValue = 0.5
         gsap.to(ele, {
           duration,
           opacity: opacityValue
@@ -189,10 +187,16 @@ function initMacro3() {
     $("#_2001-Soil-Density").mouseover(() => {
       greyOther("2001", 'Soil');
     });
+    $("#_2001-Soil-Bubbles").mouseover(() => {
+      greyOther("2001", 'Soil');
+    });
     $("#_2001-Plant-Stocks").mouseover(() => {
       greyOther("2001", 'Plant');
     });
     $("#_2001-Plant-Density").mouseover(() => {
+      greyOther("2001", 'Plant');
+    });
+    $("#_2001-Plant-Bubbles").mouseover(() => {
       greyOther("2001", 'Plant');
     });
     $('#For2001-Soil').mousemove(() => {
@@ -209,10 +213,16 @@ function initMacro3() {
     $("#_2004-Soil-Density").mouseover(() => {
       greyOther("2004", 'Soil');
     });
+    $("#_2004-Soil-Bubbles").mouseover(() => {
+      greyOther("2004", 'Soil');
+    });
     $("#_2004-Plant-Stocks").mouseover(() => {
       greyOther("2004", 'Plant');
     });
     $("#_2004-Plant-Density").mouseover(() => {
+      greyOther("2004", 'Plant');
+    });
+    $("#_2004-Plant-Bubbles").mouseover(() => {
       greyOther("2004", 'Plant');
     });
     $('#For2004-Soil').mousemove(() => {
@@ -229,10 +239,16 @@ function initMacro3() {
     $("#_2008-Soil-Density").mouseover(() => {
       greyOther("2008", 'Soil');
     });
+    $("#_2008-Soil-Bubbles").mouseover(() => {
+      greyOther("2008", 'Soil');
+    });
     $("#_2008-Plant-Stocks").mouseover(() => {
       greyOther("2008", 'Plant');
     });
     $("#_2008-Plant-Density").mouseover(() => {
+      greyOther("2008", 'Plant');
+    });
+    $("#_2008-Plant-Bubbles").mouseover(() => {
       greyOther("2008", 'Plant');
     });
     $('#For2008-Soil').mousemove(() => {
@@ -249,10 +265,16 @@ function initMacro3() {
     $("#_2014-Soil-Density").mouseover(() => {
       greyOther("2014", 'Soil');
     });
+    $("#_2014-Soil-Bubbles").mouseover(() => {
+      greyOther("2014", 'Soil');
+    });
     $("#_2014-Plant-Stocks").mouseover(() => {
       greyOther("2014", 'Plant');
     });
     $("#_2014-Plant-Density").mouseover(() => {
+      greyOther("2014", 'Plant');
+    });
+    $("#_2014-Plant-Bubbles").mouseover(() => {
       greyOther("2014", 'Plant');
     });
     $('#For2014-Soil').mousemove(() => {

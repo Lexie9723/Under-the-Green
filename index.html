@@ -45,9 +45,12 @@
             style="width: 100%; position: fixed; left: 0; right: 0; margin: auto; top: 0; display: grid;">
             <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
                 <g id="home">
-                    <g id="home_sky"></g>
-                    <g id="home_moon" transform="scale(0.3) translate(4000, 1500)"></g>
+                    <g id="home_sky" opacity="0"></g>
+                    <g id="home_moon" transform="scale(0.3) translate(4000, 1500)" opacity="0"></g>
                     <g id="home_buildings"></g>
+                    <!-- copy from home2 -->
+                    <g id="home_anima"></g>
+
                     <g id="home_mark"></g>
                     <g id="home_title" opacity="0" transform="translate(0, 100)"></g>
                     <g id="home_description"></g>
@@ -91,13 +94,10 @@
             </svg>
             <svg id="svg_macro2" viewbox="0 0 1920 1080" width=100% style="background: transparent;overflow: hidden">
                 <g id="macro2">
-                    <g id="macro_2_text_1" transform="translate(0, -110)" opacity="0"></g>
-                    <g id="macro_2_text_2" transform="translate(0, 140)" opacity="0"></g>
+                    <g id="macro_2_text_1" transform="translate(0, -10)" opacity="0"></g>
+                    <g id="macro_2_text_2" transform="translate(0, 240)" opacity="0"></g>
                 </g>
             </svg>
-<!--            <div id="svg_macro3" width=100% style="background: 001429; height: 1080px; display: hidden">-->
-<!--                <div id="macroContainer"></div>-->
-<!--            </div>-->
             <svg id="svg_macro3" viewbox="0 0 1920 1080" width=100% style="background: 001429;overflow: hidden">
                 <g id="macro3">
                     <g id="macroContainer"></g>
@@ -106,9 +106,9 @@
             <svg id="svg_micro1" viewbox="0 0 1920 1080" width=100% height="100%"
                 style="background: #001429;overflow: hidden">
                 <g id="micro1">
-                    <image id="micro1_bg" href="./resource/micro/micro1/micro1Bg.jpg" x="0" y="-300" width="100%"
+                    <image id="micro1_bg" href="./resource/micro/micro1/micro1Bg.jpg" x="0" y="0" width="100%"
                         height="1380" preserveAspectRatio="none meet" />
-                    <g id="micro1_modal" style="width: 100%; height: 100%;" transform="translate(0, -300)">
+                    <g id="micro1_modal" style="width: 100%; height: 100%;">
                     </g>
                     <g id="micro1_text1"></g>
                     <g id="micro1_text2" opacity="0"></g>
@@ -199,7 +199,7 @@
                     <g id="experiment_description1" opacity="1"></g>
                     <g id="experiment_description2" opacity="0"></g>
                     <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
-                    <g id="experiment_text1"></g>
+                    <!-- <g id="experiment_text1"></g> -->
                 </g>
             </svg>
         </div>
@@ -263,7 +263,6 @@
     // macro2 湖南省地图区域
     $("#macro_2_text_1").load("resource/macro/macro2/FiveRegins.svg", () => initMacro2());
     $("#macro_2_text_2").load("resource/macro/macro2/Since2001.svg", () => initMacro2());
-
     // macro3 花盘界面
     $("#macroContainer").load("resource/macro/macro3/MacroDefault.svg", () => initMacro3());
     // initMacro3();
@@ -293,8 +292,8 @@
     $("#experiment_description1").load("resource/experiment/05-Description1.svg", () => initExperiment());
     $("#experiment_description2").load("resource/experiment/05-Description2.svg");
     $("#experiment_general_trends").load("resource/experiment/04-GeneralTrends.svg", () => initExperiment());
-    $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg");
-    $("#experiment_text1").load("resource/micro/micro4/Micro-S1.svg", () => initExperiment());
+    $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg", () => initExperiment());
+    // $("#experiment_text1").load("resource/micro/micro4/Micro-S1.svg", () => initExperiment());
 
     $("#micro_sky").load("resource/micro/16-Sky.svg");
     $("#micro_moon").load("resource/micro/15-Moon.svg");
