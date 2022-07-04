@@ -26,13 +26,13 @@ function initHome2() {
 		if (dist < 50) {
 			speed = (dist / 300) * this.speed;
 			let sx = Math.random() * 1920;
-			let sy = 1080;
+			let sy = Math.random() * 680;
 			this.reset(
 				sx,
 				sy,
 				sx + Math.random() * 300 - 150,
-				sy - Math.random() * 680,
-				1 + 2 * Math.random(),
+				sy + Math.random() * 680,
+				1 + Math.random(),
 				1 + Math.random() * 0.4 - 0.2
 			);
 		}
@@ -47,7 +47,7 @@ function initHome2() {
 		this.y = y;
 		this.destX = destX;
 		this.destY = destY;
-		if (Math.random() < 0.6) {
+		if (Math.random() < 0.3) {
 			this.destX = 940;
 			this.destY = 1000;
 		}
@@ -125,10 +125,10 @@ function initHome2() {
 	let nutGroup = dirtGroup
 		.selectAll(".nut")
 		.data([
-			[500, 1100],
-			[800, 1200],
-			[1100, 1200],
-			[1400, 1100],
+			[500, 1050],
+			[800, 1150],
+			[1100, 1150],
+			[1400, 1050],
 		])
 		.join("g")
 		.each(function () {
@@ -153,10 +153,10 @@ function initHome2() {
 	let socGroup = dirtGroup
 		.selectAll(".soc")
 		.data([
-			[500, 1100],
-			[800, 1200],
-			[1100, 1200],
-			[1400, 1100],
+			[500, 1050],
+			[800, 1150],
+			[1100, 1150],
+			[1400, 1050],
 		])
 		.join("g")
 		.each(function () {
@@ -197,10 +197,7 @@ function initHome2() {
 		.each(function (d) {
 			$(this).append(d);
 		})
-		.attr(
-			"transform",
-			(d) => `translate(${Math.random() * 400 - 200 + 1500}, 200)`
-		)
+		.attr("transform", (d) => `translate(${Math.random() * 400 - 200 + 1500}, 200)`)
 		.attr("opacity", 1)
 		.attr("class", "leaf");
 	let leafSocGroup = d3
@@ -217,21 +214,15 @@ function initHome2() {
 	let bugGroup = () => { };
 	let leafAnima = function () {
 		leafSocGroup
-			.attr("transform", (d, i) => `translate(${500 + i * 300}, 1180)`)
+			.attr("transform", (d, i) => `translate(${500 + i * 500 * Math.random()}, ${1000 + 180* Math.random()})`)
 			.attr("opacity", 0);
 		leafGroup
-			.attr(
-				"transform",
-				(d) => `translate(${Math.random() * 400 - 200 + 1500}, 200)`
-			)
+			.attr("transform",(d) => `translate(${Math.random() * 400 - 200 + 1500}, 200)`)
 			.attr("opacity", 1)
 			.transition()
 			.duration(3000)
 			.attr("opacity", 0)
-			.attr(
-				"transform",
-				(d) => `translate(${940 + Math.random() * 1000 - 500}, 1180)`
-			)
+			.attr("transform", (d) => `translate(${940 + Math.random() * 1000 - 500}, 1180)`)
 			.on("end", function () {
 				leafSocGroup
 					.transition()
@@ -262,23 +253,13 @@ function initHome2() {
 		.each(function (d) {
 			$(this).append(d);
 		})
-		.attr(
-			"transform",
-			(d, i) =>
-				`translate(${500 + i * 300 + Math.random() * 100 - 50}, ${1180 + Math.random() * 100 - 50
-				})`
-		)
+		.attr("transform", (d, i) =>`translate(${500 + i * 300 + Math.random() * 100 - 50}, ${1080 + Math.random() * 100 - 50})`)
 		.attr("opacity", 0)
 		.attr("class", "bug");
 
 	let bugAnima = function () {
 		bugGroup
-			.attr(
-				"transform",
-				(d, i) =>
-					`translate(${500 + i * 300 + Math.random() * 100 - 50}, ${1180 + Math.random() * 100 - 50
-					})`
-			)
+			.attr("transform",(d, i) =>`translate(${600 + i * 300 + Math.random() * 100 - 50}, ${1180 + Math.random() * 100 - 50})`)
 			.attr("opacity", 0)
 			.transition()
 			.duration(1000)
@@ -287,10 +268,14 @@ function initHome2() {
 				bugGroup
 					.transition()
 					.duration(3000)
-					.attr("transform", (d, i) => `translate(${540 + i * 300}, 1220)`)
-					.on("end", () => {
-						leafSocGroup.transition().duration(1500).attr("opacity", 0);
+					.attr("transform", (d, i) => {
+						if(i == 0 || i == 3){
+							return `translate(${540 + i * 300}, 1080)`
+						} else {
+							return `translate(${540 + i * 300}, 1180)`
+						}
 					});
+					// .on("end", () => {leafSocGroup.transition().duration(1500).attr("opacity", 0);});
 			});
 	};
 
@@ -308,6 +293,8 @@ function initHome2() {
 							.attr("opacity", 1)
 							.on("end", () => {
 								plantStage++;
+								d3.select(`#Description`+plantStage).transition().duration(1000).attr("opacity", 0);
+								d3.select(`#Description`+(plantStage+1)).transition().duration(1000).attr("opacity", 1);
 							});
 					}
 					if (plantStage === 0) {
@@ -330,6 +317,8 @@ function initHome2() {
 							.attr("opacity", 0)
 							.on("end", () => {
 								plantStage--;
+								d3.select(`#Description`+(plantStage+2)).transition().duration(1000).attr("opacity", 0);
+								d3.select(`#Description`+(plantStage+1)).transition().duration(1000).attr("opacity", 1);
 							});
 					}
 				} else {

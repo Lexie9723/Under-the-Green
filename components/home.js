@@ -1,6 +1,8 @@
 let loadHome = 0;
 const maxHome = 11;
 let stage_ig = -2
+
+let bubbleInited = false
 function initHome() {
     loadHome++;
     if (loadHome < maxHome) return;
@@ -29,7 +31,7 @@ function initHome() {
         if (dist < 50) {
             speed = (dist / 300) * this.speed;
             let sx = Math.random() * 1920;
-            let sy = 780;
+            let sy = 780 + Math.random() * 40;
             this.reset(
                 sx,
                 sy,
@@ -83,7 +85,7 @@ function initHome() {
         for (let i = 0; i < size; i++) {
             let sx, sy, dx, dy;
             sx = Math.random() * 1920;
-            sy = 780;
+            sy = 780 + Math.random() * 40;
             dx = sx + Math.random() * 300 - 150;
             dy = sy - Math.random() * 780;
             let p = new Particle();
@@ -128,17 +130,46 @@ function initHome() {
                     duringInitial = false;
                 })
             });
+        d3.select("#Description1").attr("opacity", 1);
+        d3.select("#Description2").attr("opacity", 0);
+        d3.select("#Description3").attr("opacity", 0);
+        d3.select("#Description4").attr("opacity", 0);
     }
 
     registerScroll("#home", (event, isDown) => {
         if (isDown) {
             if (!initial) {
                 init()
-                updateParticles_home(8);
+                if(!bubbleInited){
+                    updateParticles_home(8);
+                    bubbleInited = true
+                }
             } else if (!duringInitial) {
                 scrollTo(1, 1000, false)
                 setTimeout(() => showLight(), 500);
             }
         }
+    })
+
+    $("#_nav_Macro").click(function(){
+        scrollTo(3, 1000, false)
+    })
+    $("#_nav_Micro").click(function(){
+        scrollTo(6, 1000, false)
+    })
+    $("#_nav_Mingling").click(function(){
+        scrollTo(10, 1000, false)
+    })
+}
+
+function showAbout(){
+    d3.select("#home_about_detail").transition().duration(10).attr("transform", "translate(0, 0)")
+        .on("end", ()=>{
+            d3.select("#home_about_detail").transition().duration(400).attr("opacity", 1);
+        })
+    
+    $("#Hide").click(function(){
+        d3.select("#home_about_detail").transition().duration(400).attr("transform", "translate(0, 540)").attr("opacity", 0)
+            .on("end", ()=>d3.select("#home_about_detail").attr("transform", "translate(0, 1080)").attr("opacity", 0.1))
     })
 }

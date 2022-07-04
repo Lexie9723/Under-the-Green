@@ -31,7 +31,6 @@
 </head>
 
 <body style="background-color:#001429;" onselectstart="return false">
-
     <div style="text-align: -webkit-center;">
         <div class="videos" style="width: 100%;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto; ">
             <video id="home3_audio" width="100%" height="100%" muted controlsList="nodownload" style="display: none;">
@@ -75,6 +74,7 @@
                     <g id="home2_text2" opacity="0"></g>
                     <g id="home2_text3" opacity="0"></g>
                     <g id="home2_text4" opacity="0"></g>
+                    <g id="home_description2"></g>
                 </g>
             </svg>
             <svg id="svg_home3" viewbox="0 0 1920 1080" width=100%
@@ -198,6 +198,7 @@
                     <g id="experiment_timeline"></g>
                     <g id="experiment_description1" opacity="1"></g>
                     <g id="experiment_description2" opacity="0"></g>
+                    <g id="experiment_description3" opacity="0"></g>
                     <g id="experiment_general_trends" opacity="0" transform="translate(0, -20)"></g>
                     <!-- <g id="experiment_text1"></g> -->
                 </g>
@@ -205,14 +206,14 @@
         </div>
     </div>
 
-    <div id="flowPin" style="pointer-events: none; position: fixed; transform: translate(0px, 0px)scale(1);">
+    <div id="flowPin" style="pointer-events: none; position: fixed; transform: translate(0px, 0px) scale(1);">
         <svg width="1920" viewBox="0 0 1920 1080" fill="none" opacity="1"
             style="transform: translate(0px, 0px);left: 0px;top: 0px;position: absolute;">
-            <g id="experiment_navigation_bar" opacity="0">
-            </g>
+            
+            <g id="home_about_detail" class="point_active" transform="translate(0, 1080)" opacity="0.1"></g>
+            <g id="experiment_navigation_bar" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="home_voice" class="point_active"></g>
-            <g id="home_languages" class="point_active"></g>
-            <g id="home_help" class="point_active"></g>
+            <g id="home_help" opacity="0"></g>
             <g id="home_about" class="point_active"></g>
             <g id="home_logo" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="card_litter" opacity="0" transform="translate(0, 0)"></g>
@@ -221,7 +222,6 @@
             <g id="card_organ_m" opacity="0" transform="translate(0, 0)"></g>
             <g id="card_som" opacity="0" transform="translate(0, 0)"></g>
         </svg>
-
     </div>
 </body>
 <script>
@@ -237,12 +237,23 @@
     $("#home_moon").load("resource/home/04-Moon.svg", () => initHome());
     $("#home_mark").load("resource/home/02-Mark.svg", () => initHome());
     $("#home_voice").load("resource/home/01-Voice.svg", () => initHome());
+    $("#home_voice").click(function(){
+        console.log("#home_voice")
+    });
     $("#home_title").load("resource/home/01-Title.svg", () => initHome());
     $("#home_logo").load("resource/home/01-Logo.svg", () => initHome());
-    $("#home_languages").load("resource/home/01-Languages.svg", () => initHome());
+    $("#home_logo").click(function(){
+        console.log("#home_logo")
+    })
+    
     $("#home_help").load("resource/home/01-Help.svg", () => initHome());
     $("#home_description").load("resource/home/01-Description.svg", () => initHome());
     $("#home_about").load("resource/home/01-About.svg", () => initHome());
+    $("#home_about").click(()=>showAbout())
+    $("#home_about_detail").load("resource/home/About-detail.svg");
+    
+
+    $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg", () => initHome());
 
     $("#home2_bg").load("resource/home2/BG.svg", () => initHome2());
     $("#home2_light").load("resource/home2/03-Light.svg", () => initHome2());
@@ -253,7 +264,9 @@
     $("#home2_plant_1").load("resource/home_plant/01-P1.svg", () => initHome2());
     $("#home2_plant_2").load("resource/home_plant/01-P2.svg", () => initHome2());
     $("#home2_plant_3").load("resource/home_plant/01-P3.svg", () => initHome2());
-    // $("#home_about").load("resource/home/01-About.svg", () => initHome());
+    $("#home_description2").load("resource/home2/HomeP2Description.svg", () => initHome());
+
+
     /*  */
     // 跷跷板
     initHome3();
@@ -285,12 +298,14 @@
     $("#experiment_ecoballs").load("resource/experiment/11-Ecoballs.svg", () => initExperiment());
     $("#experiment_ball").load("resource/experiment/ball/5yr.svg", () => initExperiment());
     $("#experiment_line").load("resource/experiment/line/08-Values-5yr.svg", () => initExperiment());
-    $("#experiment_legend").load("resource/experiment/09-Legend.svg", () => initExperiment());
+    // $("#experiment_legend").load("resource/experiment/09-Legend.svg", () => initExperiment());
+    $("#experiment_legend").load("resource/mingling/Mingling_Legend.svg", () => initExperiment());
     $("#experiment_ball_surface").load("resource/experiment/08-ReflectiveSurface.svg", () => initExperiment());
     $("#experiment_proportions").load("resource/experiment/07-Proportions.svg", () => initExperiment());
     $("#experiment_timeline").load("resource/experiment/06-Timeline.svg", () => initExperiment());
-    $("#experiment_description1").load("resource/experiment/05-Description1.svg", () => initExperiment());
-    $("#experiment_description2").load("resource/experiment/05-Description2.svg");
+    $("#experiment_description1").load("resource/mingling/Mingling_Description_01.svg", () => initExperiment());
+    $("#experiment_description2").load("resource/mingling/Mingling_Description_02.svg");
+    $("#experiment_description3").load("resource/mingling/Mingling_Description_03.svg");
     $("#experiment_general_trends").load("resource/experiment/04-GeneralTrends.svg", () => initExperiment());
     $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg", () => initExperiment());
     // $("#experiment_text1").load("resource/micro/micro4/Micro-S1.svg", () => initExperiment());
@@ -328,6 +343,7 @@
     $("#micro_line").load("resource/micro/03-Line.svg");
     $("#micro_legend").load("resource/micro/02-Legend.svg");
     $("#micro_mark").load("resource/micro/01-Mark.svg");
+    
     console.log("finish")
     // $(`#page1_timeline`).load("resource/Timeline.svg");
     // $(`#page1_legend`).load("resource/Legend/Legend.svg");

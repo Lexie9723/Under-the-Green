@@ -1,1 +1,5 @@
-<g id="a28b2f02-cc5a-4f74-935e-2acc13f7905e"><rect width="153.09" height="32" rx="6" style="fill:#fff"/><text transform="translate(11.67 20.72)" style="font-size:18px;fill:#02f8ff;font-family:MuseoModerno-Bold, MuseoModerno;font-weight:700">SOM<tspan x="45.68" y="0" xml:space="preserve" style="fill:#001429;font-family:TimesNewRomanPSMT, Times New Roman;font-weight:400" id="card_som_span">   51.57 t/ha</tspan></text></g>
+<g id="a28b2f02-cc5a-4f74-935e-2acc13f7905e">
+    <rect width="153.09" height="32" rx="6" style="fill:#fff"/>
+    <text transform="translate(11.67 20.72)" style="font-size:18px;fill:#02f8ff;font-family:MuseoModerno-Bold, MuseoModerno;font-weight:700">SOC<tspan x="45.68" y="0" xml:space="preserve" style="fill:#001429;font-family:TimesNewRomanPSMT, Times New Roman;font-weight:400" id="card_som_span">   51.57 t/ha</tspan>
+    </text>
+</g>

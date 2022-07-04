@@ -256,12 +256,17 @@ function initExperiment() {
       yr = year;
       updateBall();
     }
-    if (yr >= 2) {
+    
+    if (yr >= 4) {
       d3.select("#experiment_description1")
         .transition()
         .duration(500)
         .attr("opacity", 0);
       d3.select("#experiment_description2")
+        .transition()
+        .duration(500)
+        .attr("opacity", 0);
+      d3.select("#experiment_description3")
         .transition()
         .duration(500)
         .attr("opacity", 1);
@@ -270,8 +275,12 @@ function initExperiment() {
       d3.select("#experiment_description1")
         .transition()
         .duration(500)
-        .attr("opacity", 1);
+        .attr("opacity", 0);
       d3.select("#experiment_description2")
+        .transition()
+        .duration(500)
+        .attr("opacity", 1);
+      d3.select("#experiment_description3")
         .transition()
         .duration(500)
         .attr("opacity", 0);

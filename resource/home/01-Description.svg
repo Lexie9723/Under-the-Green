@@ -1,1 +1,16 @@
-<svg id="bf129eb6-3cf7-4e08-a7e2-dc6e592ff06b" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><text transform="translate(760.22 983.53)" style="font-size:18px;fill:#fff;font-family:MuseoModerno-Regular, MuseoModerno">In the process of indu<tspan x="189.61" y="0" style="letter-spacing:-0.015001085069444444em">s</tspan><tspan x="198.83" y="0">trialization of the city,</tspan><tspan x="-75.48" y="24">the production and living of people produce l</tspan><tspan x="310.96" y="24" style="letter-spacing:-0.019992404513888888em">o</tspan><tspan x="321.87" y="24">ts of CO</tspan></text><text transform="translate(1150.67 1013.52) scale(0.58)" style="font-size:18px;fill:#fff;font-family:MuseoModerno-Regular, MuseoModerno">2</text><text transform="translate(1156.59 1007.53)" style="font-size:18px;fill:#fff;font-family:MuseoModerno-Regular, MuseoModerno"><tspan xml:space="preserve"> gases.</tspan><tspan x="60.89" y="0" style="font-size:20px;letter-spacing:0.0000244140625em"> </tspan></text></svg>
+<svg id="图层_1" data-name="图层 1"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+    <text transform="translate(766.46 985.43)" style="font-size:18px;fill:#eff;font-family:MuseoModerno-Regular, MuseoModerno">In the process of indu<tspan x="189.61" y="0" style="letter-spacing:-0.015001085069444444em">s</tspan>
+        <tspan x="198.83" y="0">trialization of the city,</tspan>
+        <tspan x="-75.56" y="24">the production and living of people produce l</tspan>
+        <tspan x="310.88" y="24" style="letter-spacing:-0.019992404513888888em">o</tspan>
+        <tspan x="321.78" y="24">ts of </tspan>
+        <tspan x="366.49" y="24" style="fill:#02f8ff;font-family:MuseoModerno-Bold, MuseoModerno;font-weight:700">CO</tspan>
+    </text>
+    <text transform="translate(1157.11 1015.43) scale(0.58)" style="font-size:18px;fill:#02f8ff;font-family:MuseoModerno-Bold, MuseoModerno;font-weight:700">2</text>
+    <text transform="translate(1162.96 1009.43)" style="font-size:18px;fill:#02f8ff;font-family:MuseoModerno-Bold, MuseoModerno;font-weight:700">
+        <tspan xml:space="preserve"> gases</tspan>
+        <tspan x="57.1" y="0" style="fill:#eff;font-family:MuseoModerno-Regular, MuseoModerno;font-weight:400;letter-spacing:0.00002712673611111111em">.</tspan>
+        <tspan x="60.84" y="0" style="fill:#fff;font-size:20px;font-family:MuseoModerno-Regular, MuseoModerno;font-weight:400"></tspan>
+    </text>
+</svg>

@@ -88,8 +88,61 @@ function scrollTo(page, speed, callback, ease){
                 })
             }
             Page = page
+
+            // 导航栏跟随逻辑
+            switch(Page){
+                case 1:
+                case 2:
+                    d3.select("#aboutInMotivation").attr("opacity", "1");
+                    d3.select("#aboutInMacro").attr("opacity", "0");
+                    d3.select("#aboutInMicro").attr("opacity", "0");
+                    d3.select("#aboutInMingling").attr("opacity", "0");
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    d3.select("#_nav_Macro").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
+                    d3.select("#_nav_Micro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_under_line").attr("x1", "348.8").attr("x2", "423.1");
+                    
+                    d3.select("#aboutInMotivation").attr("opacity", "0");
+                    d3.select("#aboutInMacro").attr("opacity", "1");
+                    d3.select("#aboutInMicor").attr("opacity", "0");
+                    d3.select("#aboutInMingling").attr("opacity", "0");
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Micro").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
+                    d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_under_line").attr("x1", "483.8").attr("x2", "547.1");
+                    
+                    d3.select("#aboutInMotivation").attr("opacity", "0");
+                    d3.select("#aboutInMacro").attr("opacity", "0");
+                    d3.select("#aboutInMicro").attr("opacity", "1");
+                    d3.select("#aboutInMingling").attr("opacity", "0");
+                    break;
+                case 10:
+                    d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Micro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Mingling").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
+                    d3.select("#_nav_under_line").attr("x1", "601.1").attr("x2", "703.8");
+
+                    d3.select("#aboutInMotivation").attr("opacity", "0");
+                    d3.select("#aboutInMacro").attr("opacity", "0");
+                    d3.select("#aboutInMicro").attr("opacity", "0");
+                    d3.select("#aboutInMingling").attr("opacity", "1");
+                    break;
+                default:
+                    break;
+            }
             return
         }
+
+        // afterwards line maybe will not run 
         let callbackTo
         let callbackFrom
         if (page === 0){
