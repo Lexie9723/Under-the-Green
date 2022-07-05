@@ -134,6 +134,7 @@ function initHome() {
         d3.select("#Description2").attr("opacity", 0);
         d3.select("#Description3").attr("opacity", 0);
         d3.select("#Description4").attr("opacity", 0);
+
     }
 
     registerScroll("#home", (event, isDown) => {
@@ -160,6 +161,15 @@ function initHome() {
     $("#_nav_Mingling").click(function(){
         scrollTo(10, 1000, false)
     })
+    
+    // play bgm
+    const audioEle = document.getElementById("backgroud-audio");
+    audioEle.play();
+    
+    d3.select("#aboutInMotivation").attr("opacity", "1");
+    d3.select("#aboutInMacro").attr("opacity", "0");
+    d3.select("#aboutInMicro").attr("opacity", "0");
+    d3.select("#aboutInMingling").attr("opacity", "0");
 }
 
 function showAbout(){
@@ -172,4 +182,15 @@ function showAbout(){
         d3.select("#home_about_detail").transition().duration(400).attr("transform", "translate(0, 540)").attr("opacity", 0)
             .on("end", ()=>d3.select("#home_about_detail").attr("transform", "translate(0, 1080)").attr("opacity", 0.1))
     })
+}
+
+function triggerAudio(){
+    const audioEle = document.getElementById("backgroud-audio");
+    if (audioEle.paused) {
+        audioEle.play();
+        $("#home_voice #Waves").attr("opacity", "1")
+    } else {
+        audioEle.pause()
+        $("#home_voice #Waves").attr("opacity", "0")
+    }
 }

@@ -137,6 +137,10 @@ function scrollTo(page, speed, callback, ease){
                     d3.select("#aboutInMingling").attr("opacity", "1");
                     break;
                 default:
+                    d3.select("#aboutInMotivation").attr("opacity", "1");
+                    d3.select("#aboutInMacro").attr("opacity", "0");
+                    d3.select("#aboutInMicro").attr("opacity", "0");
+                    d3.select("#aboutInMingling").attr("opacity", "0");
                     break;
             }
             return
