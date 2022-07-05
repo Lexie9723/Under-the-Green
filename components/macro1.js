@@ -19,13 +19,14 @@ function initMacro1() {
     if (isDown) {
       scrollTo(4, 1000, false);
       initAnimMacro2();
-      setTimeout(() => showLight(), 500);
+      $("#icon-mouse-scroll").fadeIn(1200);
     } else {
       scrollTo(2, 1000, false);
       d3.select("#home3_audio")
         .transition()
         .duration(1000)
         .style("display", "inline-block");
+      $("#icon-mouse-scroll").fadeIn(1200);
     }
   });
 }

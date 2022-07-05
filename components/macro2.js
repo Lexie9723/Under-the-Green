@@ -15,6 +15,7 @@ let palyMacro2Video = function () {
       playMacro2VideEnded = true;
       elevideo.loop = true;
       elevideo.play();
+      $("#icon-mouse-scroll").fadeIn(500);
     },
     false
   );
@@ -39,9 +40,9 @@ function initMacro2() {
 
   registerScroll("#svg_macro2", (event, isDown) => {
     if (playMacro2VideEnded) {
+      $("#icon-mouse-scroll").fadeOut(500);
       if (isDown) {
         scrollTo(5, 1000, false);
-        setTimeout(() => showLight(), 500);
       } else {
         scrollTo(3, 1000, false);
       }

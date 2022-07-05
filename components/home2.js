@@ -47,7 +47,7 @@ function initHome2() {
 		this.y = y;
 		this.destX = destX;
 		this.destY = destY;
-		if (Math.random() < 0.3) {
+		if (Math.random() < 0.1) {
 			this.destX = 940;
 			this.destY = 1000;
 		}
@@ -214,7 +214,7 @@ function initHome2() {
 	let bugGroup = () => { };
 	let leafAnima = function () {
 		leafSocGroup
-			.attr("transform", (d, i) => `translate(${500 + i * 500 * Math.random()}, ${1000 + 180* Math.random()})`)
+			.attr("transform", (d, i) => `translate(${500 + (i+1) * 500 * (Math.random()-0.5)}, ${1000 + 180* Math.random()})`)
 			.attr("opacity", 0);
 		leafGroup
 			.attr("transform",(d) => `translate(${Math.random() * 400 - 200 + 1500}, 200)`)

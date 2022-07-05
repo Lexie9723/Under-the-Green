@@ -39,7 +39,9 @@
             <video id="macro2_audio" width="100%" height="100%" muted controlsList="nodownload" style="display: none;">
                 <source src="./resource/audio/Macro.mp4" type="video/mp4">
             </video>
-            <audio id="backgroud-audio" src="./resource/audio/audio.mp3" loop style="display: none;"> 
+            <audio id="backgroud-audio" preload="load" loop muted style="display: none;">
+                <source src="./resource/audio/audio.mp3">
+            </audio>
             
         </div>
         <div id="widthDiv"
@@ -54,13 +56,13 @@
 
                     <g id="home_mark"></g>
                     <g id="home_title" opacity="0" transform="translate(0, 100)"></g>
-                    <g id="home_description"></g>
+                    <g id="home_description" opacity="0"></g>
                 </g>
             </svg>
             <svg id="svg_home2" viewbox="0 0 1920 1380" width=100% style="background: #001429">
                 <g id="home2">
                     <g id="home2_bg"></g>
-<!--                    <g id="home2_light" transform="scale(1, 0)"></g>-->
+                    <!-- <g id="home2_light" transform="scale(1, 0)"></g> -->
                     <g id="home2_light" transform="translate(1460 -1460)"></g>
                     <g id="home2_frontraw_trees"></g>
                     <g id="home2_grass"></g>
@@ -209,6 +211,11 @@
     </div>
 
     <div id="flowPin" style="pointer-events: none; position: fixed; transform: translate(0px, 0px) scale(1);">
+        <div id="icon-mouse-scroll" style="position: fixed; width:1920px; top:980px;">
+            <div style="width: 30px; margin: 0 auto">
+                <img src="./resource/element_home/Scroll_2.gif" />
+            </div>
+        </div>
         <svg width="1920" viewBox="0 0 1920 1080" fill="none" opacity="1"
             style="transform: translate(0px, 0px);left: 0px;top: 0px;position: absolute;">
             

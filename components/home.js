@@ -144,11 +144,19 @@ function initHome() {
                 if(!bubbleInited){
                     updateParticles_home(8);
                     bubbleInited = true
+                    $("#icon-mouse-scroll").fadeOut(500);
+                    d3.select("#home_description").transition().duration(1000).attr("opacity", 1);
                 }
             } else if (!duringInitial) {
                 scrollTo(1, 1000, false)
                 setTimeout(() => showLight(), 500);
             }
+            // 靠滚轮事件触发音效
+            // 之所以要靠手动触发，是因为要规避报错：
+            //     Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.
+            const audioEle = document.getElementById("backgroud-audio");
+            audioEle.muted = false;
+            audioEle.play();
         }
     })
 
@@ -161,10 +169,6 @@ function initHome() {
     $("#_nav_Mingling").click(function(){
         scrollTo(10, 1000, false)
     })
-    
-    // play bgm
-    const audioEle = document.getElementById("backgroud-audio");
-    audioEle.play();
     
     d3.select("#aboutInMotivation").attr("opacity", "1");
     d3.select("#aboutInMacro").attr("opacity", "0");

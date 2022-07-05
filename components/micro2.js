@@ -9,6 +9,7 @@ function initMicro2() {
 
 
   registerScroll("#svg_micro2", (event, isDown) => {
+    $("#icon-mouse-scroll").fadeOut(500);
     if (isDown) {
       scrollTo(8, 1000, false);
       setTimeout(() => showLight(), 500);

@@ -21,6 +21,7 @@ function initMicro3() {
             setTimeout(() => showLight(), 500);
         } else {
             scrollTo(7, 1000, false);
+            $("#icon-mouse-scroll").fadeIn(1200);
         }
     });
 

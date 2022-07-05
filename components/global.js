@@ -97,6 +97,7 @@ function scrollTo(page, speed, callback, ease){
                     d3.select("#aboutInMacro").attr("opacity", "0");
                     d3.select("#aboutInMicro").attr("opacity", "0");
                     d3.select("#aboutInMingling").attr("opacity", "0");
+                    console.log(Page)
                     break;
                 case 3:
                 case 4:
@@ -108,8 +109,10 @@ function scrollTo(page, speed, callback, ease){
                     
                     d3.select("#aboutInMotivation").attr("opacity", "0");
                     d3.select("#aboutInMacro").attr("opacity", "1");
-                    d3.select("#aboutInMicor").attr("opacity", "0");
+                    d3.select("#aboutInMicro").attr("opacity", "0");
                     d3.select("#aboutInMingling").attr("opacity", "0");
+                    
+                    console.log(Page)
                     break;
                 case 6:
                 case 7:
@@ -119,11 +122,12 @@ function scrollTo(page, speed, callback, ease){
                     d3.select("#_nav_Micro").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
                     d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
                     d3.select("#_nav_under_line").attr("x1", "483.8").attr("x2", "547.1");
-                    
                     d3.select("#aboutInMotivation").attr("opacity", "0");
                     d3.select("#aboutInMacro").attr("opacity", "0");
                     d3.select("#aboutInMicro").attr("opacity", "1");
                     d3.select("#aboutInMingling").attr("opacity", "0");
+                    
+                    console.log(Page)
                     break;
                 case 10:
                     d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
@@ -135,12 +139,16 @@ function scrollTo(page, speed, callback, ease){
                     d3.select("#aboutInMacro").attr("opacity", "0");
                     d3.select("#aboutInMicro").attr("opacity", "0");
                     d3.select("#aboutInMingling").attr("opacity", "1");
+                    
+                    console.log(Page)
                     break;
                 default:
                     d3.select("#aboutInMotivation").attr("opacity", "1");
                     d3.select("#aboutInMacro").attr("opacity", "0");
                     d3.select("#aboutInMicro").attr("opacity", "0");
                     d3.select("#aboutInMingling").attr("opacity", "0");
+                    
+                    console.log(Page)
                     break;
             }
             return

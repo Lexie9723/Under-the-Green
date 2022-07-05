@@ -290,7 +290,6 @@ function initMacro3() {
   registerScroll("#svg_macro3", (event, isDown) => {
     if (isDown) {
       scrollTo(6, 1000, false);
-      setTimeout(() => showLight(), 500);
       initAnimMicro1();
     } else {
       scrollTo(4, 1000, false);
@@ -298,6 +297,7 @@ function initMacro3() {
         .transition()
         .duration(1000)
         .style("display", "inline-block");
+      $("#icon-mouse-scroll").fadeIn(1200);
     }
   });
 }

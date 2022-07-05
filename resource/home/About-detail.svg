@@ -690,7 +690,7 @@
         <path d="M693.07,952.31l.23,1.4a6.24,6.24,0,0,1-1.2.14,2.65,2.65,0,0,1-1.34-.28,1.55,1.55,0,0,1-.66-.71,5.61,5.61,0,0,1-.2-1.87v-5.37h-1.16v-1.23h1.16v-2.31l1.58-1v3.26h1.59v1.23h-1.59v5.46a2.67,2.67,0,0,0,.08.87.74.74,0,0,0,.27.31,1.15,1.15,0,0,0,.54.11A5.33,5.33,0,0,0,693.07,952.31Z" style="fill:#fff"/>
         <path d="M695.06,953.72v-1.8h1.8v1.8Z" style="fill:#fff"/>
     </g>
-    <g id="aboutInMicro" opacity="1">
+    <g id="aboutInMicro" opacity="0">
         <text transform="translate(96 729.72)" style="font-size:24px;fill:#02f8ff;font-family:MuseoModerno-Regular, MuseoModerno">In Micro<tspan style="font-size:18px;fill:#fff;font-family:ArialMT, Arial">
             <tspan x="0" y="32">Chinese fir plantations need to absorb nitrogen, phosphorus, potassium, and other nutri</tspan>
             <tspan x="695.43" y="32">-</tspan>
@@ -741,7 +741,7 @@
     </tspan>
 </text>
 </g>
-<g id="aboutInMacro" opacity="1">
+<g id="aboutInMacro" opacity="0">
 <text transform="translate(96 730.29)" style="font-size:24px;fill:#02f8ff;font-family:MuseoModerno-Regular, MuseoModerno">In Macro<tspan style="font-size:18px;fill:#fff;font-family:ArialMT, Arial">
     <tspan x="0" y="32">Overall, the forest carbon fixation capacity in Hunan Province has been steadily increas</tspan>
     <tspan x="695.37" y="32">-</tspan>
