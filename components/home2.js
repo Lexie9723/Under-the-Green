@@ -24,32 +24,41 @@ function initHome2() {
 		let dist = Math.sqrt(dx * dx + dy * dy);
 		let speed = this.speed;
 		if (dist < 50) {
-			speed = (dist / 300) * this.speed;
-			let sx = Math.random() * 1920;
-			let sy = Math.random() * 680;
 			this.reset(
-				sx,
-				sy,
-				sx + Math.random() * 300 - 150,
-				sy + Math.random() * 680,
 				1 + Math.random(),
 				1 + Math.random() * 0.4 - 0.2
 			);
+		} else if (plantStage > 0 && this.x > 900 && this.x < 1050 && this.y > 780 && this.y < 980) {
+			this.reset(
+				1 + Math.random(),
+				1 + Math.random() * 0.4 - 0.2
+			);
+		} else if (plantStage > 0 && this.x > 700 && this.x < 1250 && this.y > 680 && this.y < 980) {
+			this.destX = (900 + 1050) / 2;
+			this.destY = (1050 + 980) / 2;
+			dx = this.destX - this.x;
+			dy = this.destY - this.y;
+			let directionAngle = Math.PI / 2 - Math.atan2(dx, dy);
+			this.speed = speed;
+			this.vector = {
+				x: Math.cos(directionAngle),
+				y: Math.sin(directionAngle),
+			};
 		}
 		this.x += speed * this.vector.x;
 		this.y += speed * this.vector.y;
 		return false;
 	};
 
-	Particle.prototype.reset = function (x, y, destX, destY, speed, scale) {
+	Particle.prototype.reset = function (speed, scale) {
 		this.scale = scale;
-		this.x = x;
-		this.y = y;
-		this.destX = destX;
-		this.destY = destY;
-		if (Math.random() < 0.1) {
-			this.destX = 940;
-			this.destY = 1000;
+		this.x = Math.random() * 1920;
+		this.y = 1080;
+		this.destX = this.x + Math.random() * 500 - 250;
+		if (Math.random() < 0.5) {
+			this.destY = 0;
+		} else {
+			this.destY = 812 - Math.random() * 400 + 200;
 		}
 		let dx = this.destX - this.x;
 		let dy = this.destY - this.y;
@@ -79,17 +88,8 @@ function initHome2() {
 	function updateParticles(size) {
 		particles = [];
 		for (let i = 0; i < size; i++) {
-			let sx, sy, dx, dy;
-			sx = Math.random() * 1920;
-			sy = 1080;
-			dx = sx + Math.random() * 300 - 150;
-			dy = sy - Math.random() * 680;
 			let p = new Particle();
 			p.reset(
-				sx,
-				sy,
-				dx,
-				dy,
 				1 + 2 * Math.random(),
 				1 + Math.random() * 0.4 - 0.2
 			);
@@ -111,7 +111,10 @@ function initHome2() {
 		});
 	}
 
-	updateParticles(12);
+	updateParticles(20);
+
+	/////////////
+
 
 	let soc = $.ajax({
 		url: "resource/element_home/SOC.svg",
@@ -122,61 +125,78 @@ function initHome2() {
 		async: false,
 	}).responseText;
 	let dirtGroup = d3.select("#home2_soc");
-	let nutGroup = dirtGroup
-		.selectAll(".nut")
-		.data([
-			[500, 1050],
-			[800, 1150],
-			[1100, 1150],
-			[1400, 1050],
-		])
-		.join("g")
-		.each(function () {
-			$(this).append(nut);
-		})
-		.attr("class", "nut")
-		.attr("opacity", 1)
-		.attr("transform", (d) => `translate(${d[0]}, ${d[1]})`);
 	let nutAnima = function () {
-		nutGroup
-			.attr("opacity", 1)
-			.attr("transform", (d) => `translate(${d[0]}, ${d[1]})`)
-			.transition()
-			.duration(3000)
+		let nutParticle = dirtGroup.append("g")
 			.attr("opacity", 0)
-			.attr("transform", `translate(940, 1080)`);
-		// .on('end', ()=>{
-		//     nutAnima();
-		// })
+			.attr("transform", `translate(${Math.random() * 1920}, ${1100 + Math.random() * 200})`)
+			.each(function () {
+				$(this).append(nut);
+			});
+
+		nutParticle.transition()
+			.delay(Math.random() * 4000)
+			.duration(Math.random() * 500 + 100)
+			.attr("opacity", 1)
+			.on('end', ()=>{
+				nutParticle.transition()
+					.duration(Math.random() * 6000 + 6000)
+					.attr("opacity", 0)
+					.attr("transform", `translate(940, 1080)`)
+					.on('end', ()=>{
+						nutParticle.remove()
+						for (let i = 0; i < 7; i++) {
+							let x = Math.random() * 1920;
+							let y = 1100 + Math.random() * 200;
+							let socParticle = dirtGroup.append("g")
+								.attr("opacity", 0)
+								.attr("transform", `translate(${x}, ${y})`)
+								.each(function () {
+									$(this).append(soc);
+								});
+
+							socParticle.transition()
+								.duration(200)
+								.attr("opacity", 1)
+								.on('end', ()=>{
+									socParticle.transition()
+										.delay(Math.random() * 2000)
+										.duration(2000)
+										.attr("opacity", 0)
+										.attr("transform", `translate(${x}, 1080)`)
+										.on('end', ()=>{
+											socParticle.remove();
+											let co2 = dirtGroup.append("g")
+												.attr("opacity", 0)
+												.attr("transform", `translate(${x}, 1080)`)
+												.each(function () {
+													if (Math.random() > 0.5) {
+														$(this).append(bubbles[0]);
+													} else {
+														$(this).append(bubbles[1]);
+													}
+												});
+											co2.transition()
+												.duration(100)
+												.attr("opacity", 1)
+												.on('end', ()=>{
+													co2.transition()
+														.duration(10000)
+														.attr("transform", `translate(${x}, 0)`)
+														.on('end', ()=>{
+															co2.remove();
+														})
+												})
+										})
+								})
+						}
+						nutAnima();
+					})
+			})
 	};
 
-	let socGroup = dirtGroup
-		.selectAll(".soc")
-		.data([
-			[500, 1050],
-			[800, 1150],
-			[1100, 1150],
-			[1400, 1050],
-		])
-		.join("g")
-		.each(function () {
-			$(this).append(soc);
-		})
-		.attr("class", "soc")
-		.attr("opacity", 0)
-		.attr("transform", `translate(940, 1080)`);
-	let socAnima = function () {
-		socGroup
-			.attr("opacity", 0)
-			.attr("transform", `translate(940, 1080)`)
-			.transition()
-			.duration(3000)
-			.attr("opacity", 1)
-			.attr("transform", (d) => `translate(${d[0]}, ${d[1]})`);
-		// .on('end', ()=>{
-		//     socAnima();
-		// })
-	};
+	for (let i = 0; i < 3; i++) {
+		nutAnima();
+	}
 
 	// leaf
 	let leaves = [
@@ -229,10 +249,12 @@ function initHome2() {
 					.duration(1000)
 					.attr("opacity", 1)
 					.on("end", () => {
-						bugAnima();
+						leafAnima();
 					});
 			});
 	};
+
+	leafAnima()
 
 	// bugs
 	let bugs = [
@@ -245,39 +267,42 @@ function initHome2() {
 		$.ajax({ url: "resource/element_home/microorganisms4.svg", async: false })
 			.responseText,
 	];
-	bugGroup = d3
-		.select("#home2_leaves")
-		.selectAll(".bug")
-		.data(bugs)
-		.join("g")
-		.each(function (d) {
-			$(this).append(d);
-		})
-		.attr("transform", (d, i) =>`translate(${500 + i * 300 + Math.random() * 100 - 50}, ${1080 + Math.random() * 100 - 50})`)
-		.attr("opacity", 0)
-		.attr("class", "bug");
 
-	let bugAnima = function () {
-		bugGroup
-			.attr("transform",(d, i) =>`translate(${600 + i * 300 + Math.random() * 100 - 50}, ${1180 + Math.random() * 100 - 50})`)
+	let bugAnima = function (bugParticle) {
+		let x = Math.random() * 1920;
+		let y = 1100 + Math.random() * 200;
+		let socParticle = dirtGroup.append("g")
 			.attr("opacity", 0)
-			.transition()
-			.duration(1000)
+			.attr("transform", `translate(${x}, ${y})`)
+			.each(function () {
+				$(this).append(soc);
+			});
+
+		socParticle.transition()
+			.delay(Math.random() * 2000 + 1000)
+			.duration(300)
 			.attr("opacity", 1)
-			.on("end", function () {
-				bugGroup
-					.transition()
-					.duration(3000)
-					.attr("transform", (d, i) => {
-						if(i == 0 || i == 3){
-							return `translate(${540 + i * 300}, 1080)`
-						} else {
-							return `translate(${540 + i * 300}, 1180)`
-						}
+			.on('end', ()=>{
+				bugParticle.transition()
+					.duration(Math.random() * 4000 + 4000)
+					.attr("transform", `translate(${x + 40}, ${y + 40})`)
+					.on('end', ()=>{
+						socParticle.remove();
+						bugAnima(bugParticle);
 					});
-					// .on("end", () => {leafSocGroup.transition().duration(1500).attr("opacity", 0);});
 			});
 	};
+
+	for (let bug of bugs) {
+		let x = Math.random() * 1920;
+		let y = 1100 + Math.random() * 200;
+		let bugParticle = d3.select("#home2_bugs")
+			.append("g").each(function () {
+				$(this).append(bug);
+			})
+			.attr("transform", `translate(${x}, ${y})`);
+		bugAnima(bugParticle)
+	}
 
 	registerScroll(
 		"#svg_home2",
@@ -296,11 +321,6 @@ function initHome2() {
 								d3.select(`#Description`+plantStage).transition().duration(1000).attr("opacity", 0);
 								d3.select(`#Description`+(plantStage+1)).transition().duration(1000).attr("opacity", 1);
 							});
-					}
-					if (plantStage === 0) {
-						nutAnima();
-						socAnima();
-						setTimeout(() => leafAnima(), 2000);
 					}
 				} else {
 					scrollTo(2, 1, false);
