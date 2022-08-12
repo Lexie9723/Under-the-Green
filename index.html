@@ -28,6 +28,7 @@
     <script src="components/micro1.js"></script>
     <script src="components/micro2.js"></script>
     <script src="components/micro3.js"></script>
+    <script src="components/about.js"></script>
 </head>
 
 <body style="background-color:#001429;" onselectstart="return false">
@@ -42,7 +43,18 @@
             <audio id="backgroud-audio" preload="load" loop muted style="display: none;">
                 <source src="./resource/audio/audio.mp3">
             </audio>
-            
+            <div id="about_video" width="100%" height="100%" 
+                style="display: none; position: relative; top: 0px; left: 0px; z-index: 10; width: 100%; height: 100%; background-color: #3e3e3eb8; backdrop-filter: blur(3px);">
+                <div id="about_video_close" style="color: #fff; top: initial; right: 0; position: absolute; font-size: 64px; margin: 20px;">×</div>
+                <iframe 
+                    src="https://www.youtube.com/embed/4AWizq6NC-8" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="width: 80%; height: 80%; margin-top: 120px;">
+                </iframe>
+            </div>
         </div>
         <div id="widthDiv"
             style="width: 100%; position: fixed; left: 0; right: 0; margin: auto; top: 0; display: grid;">
@@ -149,46 +161,56 @@
                     <g id="micro_backrowbranch1"></g>
                     <g id="micro_ground"></g>
                     <g id="micro_stones"></g>
-                    <g id="micro_middlerowtrees"></g>
-                    <g id="micro_middlerowleaf6"></g>
-                    <g id="micro_middlerowleaf5"></g>
-                    <g id="micro_middlerowleaf4"></g>
-                    <g id="micro_middlerowleaf3"></g>
-                    <g id="micro_middlerowleaf2"></g>
-                    <g id="micro_middlerowleaf1"></g>
-                    <g id="micro_middlerowbranch10"></g>
-                    <g id="micro_middlerowbranch9"></g>
-                    <g id="micro_middlerowbranch8"></g>
-                    <g id="micro_middlerowbranch7"></g>
-                    <g id="micro_middlerowbranch6"></g>
-                    <g id="micro_middlerowbranch5"></g>
-                    <g id="micro_middlerowbranch4"></g>
-                    <g id="micro_middlerowbranch3"></g>
-                    <g id="micro_middlerowbranch2"></g>
-                    <g id="micro_middlerowbranch1"></g>
+                    <g id="micro_middlerowtrees" opacity="0"></g>
+                    <g id="micro_middlerowleaf6" opacity="0"></g>
+                    <g id="micro_middlerowleaf5" opacity="0"></g>
+                    <g id="micro_middlerowleaf4" opacity="0"></g>
+                    <g id="micro_middlerowleaf3" opacity="0"></g>
+                    <g id="micro_middlerowleaf2" opacity="0"></g>
+                    <g id="micro_middlerowleaf1" opacity="0"></g>
+                    <g id="micro_middlerowbranch10"  opacity="0"></g>
+                    <g id="micro_middlerowbranch9"  opacity="0"></g>
+                    <g id="micro_middlerowbranch8"  opacity="0"></g>
+                    <g id="micro_middlerowbranch7"  opacity="0"></g>
+                    <g id="micro_middlerowbranch6"  opacity="0"></g>
+                    <g id="micro_middlerowbranch5"  opacity="0"></g>
+                    <g id="micro_middlerowbranch4"  opacity="0"></g>
+                    <g id="micro_middlerowbranch3"  opacity="0"></g>
+                    <g id="micro_middlerowbranch2"  opacity="0"></g>
+                    <g id="micro_middlerowbranch1"  opacity="0"></g>
                     <g id="micro_frontrowtrees"></g>
-                    <g id="micro_frontrowleaf6"></g>
-                    <g id="micro_frontrowleaf5"></g>
-                    <g id="micro_frontrowleaf4"></g>
-                    <g id="micro_frontrowleaf3"></g>
-                    <g id="micro_frontrowleaf2"></g>
-                    <g id="micro_frontrowleaf1"></g>
-                    <g id="micro_frontrowbranch10"></g>
-                    <g id="micro_frontrowbranch9"></g>
-                    <g id="micro_frontrowbranch8"></g>
-                    <g id="micro_frontrowbranch7"></g>
-                    <g id="micro_frontrowbranch6"></g>
-                    <g id="micro_frontrowbranch5"></g>
-                    <g id="micro_frontrowbranch4"></g>
-                    <g id="micro_frontrowbranch3"></g>
-                    <g id="micro_frontrowbranch2"></g>
-                    <g id="micro_frontrowbranch1"></g>
+                    <g id="micro_frontrowleaf6"  opacity="0"></g>
+                    <g id="micro_frontrowleaf5"  opacity="0"></g>
+                    <g id="micro_frontrowleaf4"  opacity="0"></g>
+                    <g id="micro_frontrowleaf3"  opacity="0"></g>
+                    <g id="micro_frontrowleaf2"  opacity="0"></g>
+                    <g id="micro_frontrowleaf1"  opacity="0"></g>
+                    <g id="micro_frontrowbranch10"  opacity="0"></g>
+                    <g id="micro_frontrowbranch9"  opacity="0"></g>
+                    <g id="micro_frontrowbranch8"  opacity="0"></g>
+                    <g id="micro_frontrowbranch7"  opacity="0"></g>
+                    <g id="micro_frontrowbranch6"  opacity="0"></g>
+                    <g id="micro_frontrowbranch5"  opacity="0"></g>
+                    <g id="micro_frontrowbranch4"  opacity="0"></g>
+                    <g id="micro_frontrowbranch3"  opacity="0"></g>
+                    <g id="micro_frontrowbranch2"  opacity="0"></g>
+                    <g id="micro_frontrowbranch1"  opacity="0"></g>
                     <g id="micro_soil"></g>
                     <g id="micro_timeline"></g>
                     <g id="micro_regressioncurve"></g>
                     <g id="micro_line"></g>
                     <g id="micro_legend"></g>
                     <g id="micro_mark"></g>
+                    <g id="micro_text1" opacity="0"></g>
+                    <g id="micro_text2" opacity="0"></g>
+                    <g id="micro_text3" opacity="0"></g>
+                    <g id="micro_text4" opacity="0"></g>
+                    <g id="micro_text5" opacity="0"></g>
+                    <g id="micro_text6" opacity="0"></g>
+                    <g id="micro_text7" opacity="0"></g>
+                    <g id="micro_text8" opacity="0"></g>
+                    <g id="micro_soc" transform="translate(0, -320)"></g>
+                    <!-- <g id="micro_bugs"></g> -->
                 </g>
             </svg>
             <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
@@ -208,6 +230,9 @@
                     <!-- <g id="experiment_text1"></g> -->
                 </g>
             </svg>
+            <svg viewbox="0 0 1920 5700" width=100% style="background: #001429">
+                <g id="about_page"></g>
+            </svg>
         </div>
     </div>
 
@@ -220,11 +245,11 @@
         <svg width="1920" viewBox="0 0 1920 1080" fill="none" opacity="1"
             style="transform: translate(0px, 0px);left: 0px;top: 0px;position: absolute;">
             
-            <g id="home_about_detail" class="point_active" transform="translate(0, 1080)" opacity="0.1"></g>
+            <!-- <g id="home_about_detail" class="point_active" transform="translate(0, 1080)" opacity="0.1"></g> -->
             <g id="experiment_navigation_bar" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="home_voice" class="point_active" style="cursor: pointer;"></g>
             <g id="home_help" opacity="0"></g>
-            <g id="home_about" class="point_active"></g>
+            <!-- <g id="home_about" class="point_active"></g> -->
             <g id="home_logo" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="card_litter" opacity="0" transform="translate(0, 0)"></g>
             <g id="card_nutrients" opacity="0" transform="translate(0, 0)"></g>
@@ -258,9 +283,9 @@
     
     $("#home_help").load("resource/home/01-Help.svg", () => initHome());
     $("#home_description").load("resource/home/01-Description.svg", () => initHome());
-    $("#home_about").load("resource/home/01-About.svg", () => initHome());
-    $("#home_about").click(()=>showAbout())
-    $("#home_about_detail").load("resource/home/About-detail.svg");
+    // $("#home_about").load("resource/home/01-About.svg", () => initHome());
+    // $("#home_about").click(()=>showAbout())
+    // $("#home_about_detail").load("resource/home/About-detail.svg");
     
 
     $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg", () => initHome());
@@ -303,6 +328,8 @@
     // micro3 过度界面 文字描述
     initMicro3();
 
+    $("#about_page").load("resource/about/About.svg", () => initAbout());
+
     /*  */
 
     $("#experiment_ecoballs").load("resource/experiment/11-Ecoballs.svg", () => initExperiment());
@@ -324,28 +351,30 @@
     $("#micro_moon").load("resource/micro/15-Moon.svg");
     $("#micro_mountain").load("resource/micro/14-Mountain.svg");
     $("#micro_shadows").load("resource/micro/13-Shadows.svg");
-    $("#micro_backrowplants").load("resource/micro/12-Backrowplants.svg");
-    $("#micro_backrowoftrees").load("resource/micro/12-Backrowoftrees.svg");
-    $("#micro_backrowleaf2").load("resource/micro/12-BackrowLeaf2.svg");
-    $("#micro_backrowleaf1").load("resource/micro/12-BackrowLeaf1.svg");
-    $("#micro_backrowbranch3").load("resource/micro/12-BackrowBranch3.svg");
-    $("#micro_backrowbranch2").load("resource/micro/12-BackrowBranch2.svg");
-    $("#micro_backrowbranch1").load("resource/micro/12-BackrowBranch1.svg");
     $("#micro_ground").load("resource/micro/10-Ground.svg");
     $("#micro_stones").load("resource/micro/09-Stones.svg");
     $("#micro_middlerowtrees").load("resource/micro/08-Middlerowtrees.svg");
+    $("#micro_frontrowtrees").load("resource/micro/07-Frontrowtrees.svg");
+
+    $("#micro_backrowoftrees").load("resource/micro/12-Backrowoftrees.svg");
+    $("#micro_backrowplants").load("resource/micro/12-Backrowplants.svg");
+    $("#micro_backrowbranch1").load("resource/micro/12-BackrowBranch1.svg");
+    $("#micro_backrowbranch2").load("resource/micro/12-BackrowBranch2.svg");
+    $("#micro_backrowbranch3").load("resource/micro/12-BackrowBranch3.svg");
+    $("#micro_backrowleaf1").load("resource/micro/12-BackrowLeaf1.svg");
+    $("#micro_backrowleaf2").load("resource/micro/12-BackrowLeaf2.svg");
     for (let i = 1; i <= 6; i++) {
+        $("#micro_frontrowleaf" + i).load("resource/micro/07-FrontrowLeaf" + i + ".svg");
         $("#micro_middlerowleaf" + i).load("resource/micro/08-MiddlerowLeaf" + i + ".svg");
     }
     for (let i = 1; i <= 10; i++) {
         $("#micro_middlerowbranch" + i).load("resource/micro/08-MiddlerowBranch" + i + ".svg");
     }
-    $("#micro_frontrowtrees").load("resource/micro/07-Frontrowtrees.svg");
-    for (let i = 1; i <= 6; i++) {
-        $("#micro_frontrowleaf" + i).load("resource/micro/07-FrontrowLeaf" + i + ".svg");
-    }
     for (let i = 1; i <= 9; i++) {
         $("#micro_frontrowbranch" + i).load("resource/micro/07-FrontrowBranch" + i + ".svg");
+    }
+    for (let i = 1; i <= 8; i++) {
+        $("#micro_text"+i).load("resource/micro/micro4/Micro-S" + i + ".svg");
     }
     $("#micro_soil").load("resource/micro/06-Soil.svg");
     $("#micro_timeline").load("resource/micro/05-Timeline.svg", () => initMicro());

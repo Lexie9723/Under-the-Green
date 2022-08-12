@@ -11,20 +11,12 @@ var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewh
 
 let Page = 0
 let widthDiv
-// let maskDiv
 let flowPin
-// let videoDiv
 let pageHeight = window.innerHeight
 
 $(document).ready(function () {
     widthDiv = $('#widthDiv');
-    // maskDiv = $('#maskDiv');
     flowPin = $('#flowPin');
-    // videoDiv = $('#videoDiv');
-    // $('#maskDiv').bind({
-    //     click: ()=>lockOrientation('landscape'),
-    //     touchstart: ()=>lockOrientation('landscape')
-    // });
     function resize() {
         let width = window.innerWidth;
         let height = window.innerHeight;
@@ -32,20 +24,15 @@ $(document).ready(function () {
             widthDiv.css('width', `${192000 / (1080 * width / height)}%`)
             pageHeight = height
         } else {
-            // widthDiv.css('width', `${192000 / (1080 * width / height)}%`)
             pageHeight = width * 1080 / 1920
             widthDiv.css('width', '100%')
         }
         widthDiv.css('top', `${-pageHeight * Page}px`)
-        // maskDiv.css('top', `${pageHeight}px`)
         let per = pageHeight / 1080
         flowPin.css('transform', `translate(${(width - per * 1920) / 2}px, 0px)scale(${per})`)
-        // videoDiv.css('height', `${pageHeight}px`)
     }
     window.addEventListener("resize", resize)
     resize()
-    // video.get(0).muted = false
-    // progressLoaded('Events Component')
 })
 
 function IsPC() {
@@ -93,62 +80,50 @@ function scrollTo(page, speed, callback, ease){
             switch(Page){
                 case 1:
                 case 2:
-                    d3.select("#aboutInMotivation").attr("opacity", "1");
-                    d3.select("#aboutInMacro").attr("opacity", "0");
-                    d3.select("#aboutInMicro").attr("opacity", "0");
-                    d3.select("#aboutInMingling").attr("opacity", "0");
-                    console.log(Page)
-                    break;
                 case 3:
                 case 4:
                 case 5:
+                    $("#icon-mouse-scroll").fadeOut(10);
                     d3.select("#_nav_Macro").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
                     d3.select("#_nav_Micro").attr("style", "fill:#fff;font-size:24px;");
                     d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
-                    d3.select("#_nav_under_line").attr("x1", "348.8").attr("x2", "423.1");
-                    
-                    d3.select("#aboutInMotivation").attr("opacity", "0");
-                    d3.select("#aboutInMacro").attr("opacity", "1");
-                    d3.select("#aboutInMicro").attr("opacity", "0");
-                    d3.select("#aboutInMingling").attr("opacity", "0");
-                    
-                    console.log(Page)
+                    d3.select("#_nav_About").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_under_line").attr("x1", "338").attr("x2", "413");
                     break;
                 case 6:
                 case 7:
                 case 8:
                 case 9:
+                    $("#icon-mouse-scroll").fadeOut(10);
                     d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
                     d3.select("#_nav_Micro").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
                     d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
-                    d3.select("#_nav_under_line").attr("x1", "483.8").attr("x2", "547.1");
-                    d3.select("#aboutInMotivation").attr("opacity", "0");
-                    d3.select("#aboutInMacro").attr("opacity", "0");
-                    d3.select("#aboutInMicro").attr("opacity", "1");
-                    d3.select("#aboutInMingling").attr("opacity", "0");
-                    
-                    console.log(Page)
+                    d3.select("#_nav_About").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_under_line").attr("x1", "453").attr("x2", "517");
                     break;
                 case 10:
+                    $("#icon-mouse-scroll").fadeOut(10);
                     d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
                     d3.select("#_nav_Micro").attr("style", "fill:#fff;font-size:24px;");
                     d3.select("#_nav_Mingling").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
-                    d3.select("#_nav_under_line").attr("x1", "601.1").attr("x2", "703.8");
-
-                    d3.select("#aboutInMotivation").attr("opacity", "0");
-                    d3.select("#aboutInMacro").attr("opacity", "0");
-                    d3.select("#aboutInMicro").attr("opacity", "0");
-                    d3.select("#aboutInMingling").attr("opacity", "1");
-                    
-                    console.log(Page)
+                    d3.select("#_nav_About").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_under_line").attr("x1", "557").attr("x2", "660");
                     break;
+                case 11:
+                    $("#icon-mouse-scroll").fadeOut(10);
+                    d3.select("#_nav_Macro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Micro").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_Mingling").attr("style", "fill:#fff;font-size:24px;");
+                    d3.select("#_nav_About").attr("style", "fill:#04e3ff;font-size:24px;font-weight:700;");
+                    d3.select("#_nav_under_line").attr("x1", "700").attr("x2", "774");
                 default:
                     d3.select("#aboutInMotivation").attr("opacity", "1");
                     d3.select("#aboutInMacro").attr("opacity", "0");
                     d3.select("#aboutInMicro").attr("opacity", "0");
                     d3.select("#aboutInMingling").attr("opacity", "0");
-                    
-                    console.log(Page)
+                    // $("#icon-mouse-scroll").fadeOut(10);
+                    d3.select("#about_page").attr("transform", `translate(0 0)`)
+                    offY = 0;
                     break;
             }
             return

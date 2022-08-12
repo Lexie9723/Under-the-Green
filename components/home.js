@@ -169,6 +169,9 @@ function initHome() {
     $("#_nav_Mingling").click(function(){
         scrollTo(10, 1000, false)
     })
+    $("#_nav_About").click(function(){
+        scrollTo(11, 1000, false)
+    })
     
     d3.select("#aboutInMotivation").attr("opacity", "1");
     d3.select("#aboutInMacro").attr("opacity", "0");

@@ -20,7 +20,7 @@ function initExperiment() {
   let animaGroup = d3.select("#experiment_anima").selectAll();
 
   /////////////
-  function Particle() {}
+  function Particle() { }
 
   Particle.prototype.update = function () {
     if (this.x > 1920 || this.y > 1080) return true;
@@ -256,8 +256,20 @@ function initExperiment() {
       yr = year;
       updateBall();
     }
-    
-    if (yr >= 4) {
+    if (yr == 0) {
+      d3.select("#experiment_description1")
+        .transition()
+        .duration(500)
+        .attr("opacity", 1);
+      d3.select("#experiment_description2")
+        .transition()
+        .duration(500)
+        .attr("opacity", 0);
+      d3.select("#experiment_description3")
+        .transition()
+        .duration(500)
+        .attr("opacity", 0);
+    } else if (yr >= 4) {
       d3.select("#experiment_description1")
         .transition()
         .duration(500)
@@ -314,16 +326,20 @@ function initExperiment() {
   );
 
   registerScroll("#experiment", (event, isDown) => {
-    // #02f8ff
-    if (isDown && yr < range) {
-      setYear(yr + 1);
-      timeline_button.select("text").text(`${yr + 5}`);
-      let offY = (yr * 360) / range;
-      timeline_bar.transition().duration(500).attr("height", offY);
-      timeline_button
-        .transition()
-        .duration(500)
-        .attr("transform", `translate(0 ${offY})`);
+    if (isDown) {
+      if (yr < range) {
+        setYear(yr + 1);
+        timeline_button.select("text").text(`${yr + 5}`);
+        let offY = (yr * 360) / range;
+        timeline_bar.transition().duration(500).attr("height", offY);
+        timeline_button
+          .transition()
+          .duration(500)
+          .attr("transform", `translate(0 ${offY})`);
+      } else {
+        scrollTo(11, 1000, false);
+        $("#icon-mouse-scroll").fadeOut(500);
+      }
     } else if (!isDown) {
       if (yr > 0) {
         setYear(yr - 1);

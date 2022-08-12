@@ -34,7 +34,6 @@ function initMicro1() {
       } else {
         d3.select("#micro1_text1")
           .transition()
-          .duration(1000)
           .attr("opacity", 0)
           .attr("transform", "translate(0, 0)");
         d3.select("#micro1_text2")

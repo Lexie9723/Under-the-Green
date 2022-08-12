@@ -19,6 +19,7 @@ function initMicro3() {
         if (isDown) {
             scrollTo(9, 1000, false);
             setTimeout(() => showLight(), 500);
+            initAnimMicro();
         } else {
             scrollTo(7, 1000, false);
             $("#icon-mouse-scroll").fadeIn(1200);
