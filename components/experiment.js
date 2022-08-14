@@ -3,8 +3,6 @@ const maxLoad = 10;
 function initExperiment() {
   loadTime++;
   if (loadTime < maxLoad) return;
-
-  console.log("load experiment");
   const timeline_bar = d3.select("#timeline_bar");
   const timeline_button = d3.select("#timeline_button");
   let yr = 0;

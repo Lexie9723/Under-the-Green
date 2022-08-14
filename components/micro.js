@@ -14,8 +14,6 @@ function initAnimMicro() {
 function initMicro() {
   loadMicro++;
   if (loadMicro < maxMicro) return;
-
-  console.log("load Micro");
   const timeline_bar = d3.select("#timeline_bar_2");
   const timeline_button = d3.select("#timeline_button_2");
   timeline_button.select("text").text('0');
@@ -39,7 +37,7 @@ function initMicro() {
     })
   );
 
-  /* ¿ÅÁ£ÔË¶¯ start */
+  /* é¢—ç²’è¿åŠ¨ start */
   let bubbles = [
     $.ajax({ url: "resource/element_home/Bubble.svg", async: false })
       .responseText,
@@ -128,11 +126,20 @@ function initMicro() {
 		nutAnima();
 	}
 
-  /* ¿ÅÁ£ÔË¶¯end */
+  /* é¢—ç²’è¿åŠ¨end */
 
-  // Ê÷Ä¾Éú³¤
+  // æ ‘æœ¨ç”Ÿé•¿
   function treesAnimation(isDown) {
-    console.log("yr", yr)
+
+    /*æ›²çº¿å›¾å˜åŒ– start*/
+    var totalLength = document.getElementById('micro_line').getTotalLength();
+    d3.select('#micro_line')
+    .transition()
+      .attr("stroke-dasharray", totalLength)
+      .attr("stroke-dashoffset", -Number(totalLength-totalLength/30*yr))
+        .attr('opacity',1)
+    /*æ›²çº¿å›¾å˜åŒ– end*/
+
     if (yr === 0) {
       d3.select("#micro_middlerowtrees")
         .transition()
@@ -145,6 +152,7 @@ function initMicro() {
         .duration(500)
         .attr("opacity", 1);
     }
+    
     if (yr <= 8) {
       if (yr === 0) {
         d3.select("#micro_text1")
@@ -152,6 +160,9 @@ function initMicro() {
           .attr("opacity", 0);
 
       } else if (yr === 1) {
+        d3.select("#micro_text" + Number(yr + 1))
+          .transition()
+          .attr("opacity", 0);
         d3.select("#micro_text" + yr)
           .transition()
           .delay(500)
@@ -174,13 +185,13 @@ function initMicro() {
             .delay(500)
             .attr("opacity", 1);
         } else {
+          d3.select("#micro_text" + Number(yr + 1))
+            .transition()
+            .attr("opacity", 0);
           d3.select("#micro_text" + yr)
             .transition()
             .delay(500)
             .attr("opacity", 1);
-          d3.select("#micro_text" + Number(yr + 1))
-            .transition()
-            .attr("opacity", 0);
         }
       }
     }
@@ -218,9 +229,18 @@ function initMicro() {
         d3.select("#micro_frontrowleaf1")
           .transition()
           .duration(1000)
-          .attr("transform", "translate(0, 400)")
+          .attr("transform", "translate(0, 750)")
         d3.select("#micro_frontrowleaf1")
+          .transition(500)
+          .delay(1000)
+          .attr("opacity", 0);
+
+          d3.select("#micro_middlerowbranch4")
           .transition()
+          .duration(1000)
+          .attr("transform", "translate(0, 750)")
+        d3.select("#micro_middlerowbranch4")
+          .transition(500)
           .delay(1000)
           .attr("opacity", 0);
       }
@@ -229,7 +249,7 @@ function initMicro() {
       d3.select("#micro_frontrowleaf6")
         .transition()
         .duration(1000)
-        .attr("transform", "translate(0, 400)")
+        .attr("transform", "translate(0, 750)")
       d3.select("#micro_frontrowleaf6")
         .transition()
         .delay(1000)
@@ -239,14 +259,14 @@ function initMicro() {
       d3.select("#micro_frontrowleaf2")
         .transition()
         .duration(1000)
-        .attr("transform", "translate(0, 400)")
+        .attr("transform", "translate(0, 650)")
       d3.select("#micro_frontrowleaf2")
         .transition()
         .delay(1000)
         .attr("opacity", 0);
     }
   }
-  // ¿ÅÁ£ÔË¶¯
+  // é¢—ç²’è¿åŠ¨
   function setYear(year, isDown) {
     if (year !== yr && year >= 0 && year <= range) {
       yr = year;

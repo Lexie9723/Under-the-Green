@@ -198,7 +198,12 @@
                     <g id="micro_soil"></g>
                     <g id="micro_timeline"></g>
                     <g id="micro_regressioncurve"></g>
-                    <g id="micro_line"></g>
+                    <!-- <g id="micro_line"></g> -->
+                    <svg id="a262737e-457e-4d98-aa09-18a307f753c5" data-name="Mark" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1920 1080">
+                        <path id="micro_line" d="M357.92,910.2a310.79,310.79,0,0,1-260,19.51"
+                            style="fill:none;stroke:#04e3ff;stroke-miterlimit:10;" opacity="0" stroke-dashoffset="270" />
+                    </svg>
                     <g id="micro_legend"></g>
                     <g id="micro_mark"></g>
                     <g id="micro_text1" opacity="0"></g>
@@ -210,7 +215,7 @@
                     <g id="micro_text7" opacity="0"></g>
                     <g id="micro_text8" opacity="0"></g>
                     <g id="micro_soc" transform="translate(0, -320)"></g>
-                    <!-- <g id="micro_bugs"></g> -->
+                    <g id="micro_bugs"></g>
                 </g>
             </svg>
             <svg viewbox="0 0 1920 1080" width=100% style="background: #001429">
@@ -244,12 +249,9 @@
         </div>
         <svg width="1920" viewBox="0 0 1920 1080" fill="none" opacity="1"
             style="transform: translate(0px, 0px);left: 0px;top: 0px;position: absolute;">
-            
-            <!-- <g id="home_about_detail" class="point_active" transform="translate(0, 1080)" opacity="0.1"></g> -->
             <g id="experiment_navigation_bar" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="home_voice" class="point_active" style="cursor: pointer;"></g>
             <g id="home_help" opacity="0"></g>
-            <!-- <g id="home_about" class="point_active"></g> -->
             <g id="home_logo" class="point_active" opacity="0" transform="translate(0, -100)"></g>
             <g id="card_litter" opacity="0" transform="translate(0, 0)"></g>
             <g id="card_nutrients" opacity="0" transform="translate(0, 0)"></g>
@@ -277,15 +279,9 @@
     });
     $("#home_title").load("resource/home/01-Title.svg", () => initHome());
     $("#home_logo").load("resource/home/01-Logo.svg", () => initHome());
-    $("#home_logo").click(function(){
-        console.log("#home_logo")
-    })
     
     $("#home_help").load("resource/home/01-Help.svg", () => initHome());
     $("#home_description").load("resource/home/01-Description.svg", () => initHome());
-    // $("#home_about").load("resource/home/01-About.svg", () => initHome());
-    // $("#home_about").click(()=>showAbout())
-    // $("#home_about_detail").load("resource/home/About-detail.svg");
     
 
     $("#experiment_navigation_bar").load("resource/experiment/01-NavigationBar.svg", () => initHome());
@@ -382,27 +378,6 @@
     $("#micro_line").load("resource/micro/03-Line.svg");
     $("#micro_legend").load("resource/micro/02-Legend.svg");
     $("#micro_mark").load("resource/micro/01-Mark.svg");
-    
-    console.log("finish")
-    // $(`#page1_timeline`).load("resource/Timeline.svg");
-    // $(`#page1_legend`).load("resource/Legend/Legend.svg");
-    // $(`#page1_navigation_bar_logo`).load("resource/NavigationBar/Logo.svg");
-    // $(`#page1_navigation_bar_navigating`).load("resource/NavigationBar/Navigating.svg");
-    // $(`#page1_eco_balls_trends`).load("resource/Ecoballs/Trends/5yr.svg");
-    // $(`#page1_eco_balls_balls`).load("resource/Ecoballs/Balls/5yr.svg");
-    //
-    // var page1_ball_description = $(`#page1_eco_balls_description`);
-    // page1_ball_description.append(
-    //     $.ajax({url:"resource/Ecoballs/Description/GeneralTrends.svg",async:false}).responseText,
-    //     $.ajax({url:"resource/Ecoballs/Description/Note1.svg",async:false}).responseText,
-    //     // $.ajax({url:"resource/Ecoballs/Description/Note2.svg",async:false}).responseText,
-    //     $.ajax({url:"resource/Ecoballs/Description/TrendDescriptions.svg",async:false}).responseText);
-
-    // var page1_description = $(`#page1_description`);
-    // page1_ball_description.append(
-    //     // $.ajax({url:"resource/Description/Optimal.svg",async:false}).responseText,
-    //     $.ajax({url:"resource/Description/Soil.svg",async:false}).responseText);
-
 
 </script>
 

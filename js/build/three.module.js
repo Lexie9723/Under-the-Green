@@ -16544,10 +16544,6 @@ function getShaderErrors( gl, shader, type ) {
 	const log = gl.getShaderInfoLog( shader ).trim();
 
 	if ( status && log === '' ) return '';
-
-	// --enable-privileged-webgl-extension
-	// console.log( '**' + type + '**', gl.getExtension( 'WEBGL_debug_shaders' ).getTranslatedShaderSource( shader ) );
-
 	const source = gl.getShaderSource( shader );
 
 	return 'THREE.WebGLShader: gl.getShaderInfoLog() ' + type + '\n' + log + addLineNumbers( source );
@@ -16645,9 +16641,6 @@ function fetchAttributeLocations( gl, program ) {
 
 		const info = gl.getActiveAttrib( program, i );
 		const name = info.name;
-
-		// console.log( 'THREE.WebGLProgram: ACTIVE VERTEX ATTRIBUTE:', name, i );
-
 		attributes[ name ] = gl.getAttribLocation( program, name );
 
 	}
@@ -17196,9 +17189,6 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
 
 	const vertexGlsl = versionString + prefixVertex + vertexShader;
 	const fragmentGlsl = versionString + prefixFragment + fragmentShader;
-
-	// console.log( '*VERTEX*', vertexGlsl );
-	// console.log( '*FRAGMENT*', fragmentGlsl );
 
 	const glVertexShader = WebGLShader( gl, 35633, vertexGlsl );
 	const glFragmentShader = WebGLShader( gl, 35632, fragmentGlsl );
@@ -29430,9 +29420,6 @@ class ExtrudeGeometry extends BufferGeometry {
 				// TODO1 - have a .isClosed in spline?
 
 				splineTube = extrudePath.computeFrenetFrames( steps, false );
-
-				// console.log(splineTube, 'splineTube', splineTube.normals.length, 'steps', steps, 'extrudePts', extrudePts.length);
-
 				binormal = new Vector3();
 				normal = new Vector3();
 				position2 = new Vector3();
@@ -29611,15 +29598,11 @@ class ExtrudeGeometry extends BufferGeometry {
 					}
 
 					if ( direction_eq ) {
-
-						// console.log("Warning: lines are a straight sequence");
 						v_trans_x = - v_prev_y;
 						v_trans_y = v_prev_x;
 						shrink_by = Math.sqrt( v_prev_lensq );
 
 					} else {
-
-						// console.log("Warning: lines are a straight spike");
 						v_trans_x = v_prev_x;
 						v_trans_y = v_prev_y;
 						shrink_by = Math.sqrt( v_prev_lensq / 2 );
@@ -29629,113 +29612,57 @@ class ExtrudeGeometry extends BufferGeometry {
 				}
 
 				return new Vector2( v_trans_x / shrink_by, v_trans_y / shrink_by );
-
 			}
-
-
 			const contourMovements = [];
-
 			for ( let i = 0, il = contour.length, j = il - 1, k = i + 1; i < il; i ++, j ++, k ++ ) {
-
 				if ( j === il ) j = 0;
 				if ( k === il ) k = 0;
-
-				//  (j)---(i)---(k)
-				// console.log('i,j,k', i, j , k)
-
 				contourMovements[ i ] = getBevelVec( contour[ i ], contour[ j ], contour[ k ] );
-
 			}
 
 			const holesMovements = [];
 			let oneHoleMovements, verticesMovements = contourMovements.concat();
 
 			for ( let h = 0, hl = holes.length; h < hl; h ++ ) {
-
 				const ahole = holes[ h ];
-
 				oneHoleMovements = [];
-
 				for ( let i = 0, il = ahole.length, j = il - 1, k = i + 1; i < il; i ++, j ++, k ++ ) {
-
 					if ( j === il ) j = 0;
 					if ( k === il ) k = 0;
-
-					//  (j)---(i)---(k)
 					oneHoleMovements[ i ] = getBevelVec( ahole[ i ], ahole[ j ], ahole[ k ] );
-
 				}
-
 				holesMovements.push( oneHoleMovements );
 				verticesMovements = verticesMovements.concat( oneHoleMovements );
-
 			}
-
-
-			// Loop bevelSegments, 1 for the front, 1 for the back
-
 			for ( let b = 0; b < bevelSegments; b ++ ) {
-
-				//for ( b = bevelSegments; b > 0; b -- ) {
-
 				const t = b / bevelSegments;
 				const z = bevelThickness * Math.cos( t * Math.PI / 2 );
 				const bs = bevelSize * Math.sin( t * Math.PI / 2 ) + bevelOffset;
-
-				// contract shape
-
 				for ( let i = 0, il = contour.length; i < il; i ++ ) {
-
 					const vert = scalePt2( contour[ i ], contourMovements[ i ], bs );
-
 					v( vert.x, vert.y, - z );
-
 				}
-
-				// expand holes
-
 				for ( let h = 0, hl = holes.length; h < hl; h ++ ) {
 
 					const ahole = holes[ h ];
 					oneHoleMovements = holesMovements[ h ];
-
 					for ( let i = 0, il = ahole.length; i < il; i ++ ) {
-
 						const vert = scalePt2( ahole[ i ], oneHoleMovements[ i ], bs );
-
 						v( vert.x, vert.y, - z );
-
 					}
-
 				}
-
 			}
-
 			const bs = bevelSize + bevelOffset;
-
-			// Back facing vertices
-
 			for ( let i = 0; i < vlen; i ++ ) {
-
 				const vert = bevelEnabled ? scalePt2( vertices[ i ], verticesMovements[ i ], bs ) : vertices[ i ];
-
 				if ( ! extrudeByPath ) {
-
 					v( vert.x, vert.y, 0 );
-
 				} else {
-
-					// v( vert.x, vert.y + extrudePts[ 0 ].y, extrudePts[ 0 ].x );
-
 					normal.copy( splineTube.normals[ 0 ] ).multiplyScalar( vert.x );
 					binormal.copy( splineTube.binormals[ 0 ] ).multiplyScalar( vert.y );
-
 					position2.copy( extrudePts[ 0 ] ).add( normal ).add( binormal );
-
 					v( position2.x, position2.y, position2.z );
-
 				}
-
 			}
 
 			// Add stepped vertices...
@@ -29917,9 +29844,6 @@ class ExtrudeGeometry extends BufferGeometry {
 					const j = i;
 					let k = i - 1;
 					if ( k < 0 ) k = contour.length - 1;
-
-					//console.log('b', i,j, i-1, k,vertices.length);
-
 					for ( let s = 0, sl = ( steps + bevelSegments * 2 ); s < sl; s ++ ) {
 
 						const slen1 = vlen * s;
@@ -34308,41 +34232,24 @@ function parseKeyframeTrack( json ) {
 }
 
 const Cache = {
-
 	enabled: false,
-
 	files: {},
-
 	add: function ( key, file ) {
-
 		if ( this.enabled === false ) return;
-
-		// console.log( 'THREE.Cache', 'Adding key:', key );
-
 		this.files[ key ] = file;
-
 	},
 
 	get: function ( key ) {
-
 		if ( this.enabled === false ) return;
-
-		// console.log( 'THREE.Cache', 'Checking key:', key );
-
 		return this.files[ key ];
-
 	},
 
 	remove: function ( key ) {
-
 		delete this.files[ key ];
-
 	},
 
 	clear: function () {
-
 		this.files = {};
-
 	}
 
 };
@@ -40241,44 +40148,33 @@ class ShapePath {
 						// continue;				// no intersection or edgeLowPt => doesn't count !!!
 
 					} else {
-
 						const perpEdge = edgeDy * ( inPt.x - edgeLowPt.x ) - edgeDx * ( inPt.y - edgeLowPt.y );
 						if ( perpEdge === 0 )				return	true;		// inPt is on contour ?
 						if ( perpEdge < 0 ) 				continue;
 						inside = ! inside;		// true intersection left of inPt
-
 					}
 
 				} else {
-
 					// parallel or collinear
 					if ( inPt.y !== edgeLowPt.y ) 		continue;			// parallel
 					// edge lies on the same horizontal line as inPt
 					if ( ( ( edgeHighPt.x <= inPt.x ) && ( inPt.x <= edgeLowPt.x ) ) ||
 						 ( ( edgeLowPt.x <= inPt.x ) && ( inPt.x <= edgeHighPt.x ) ) )		return	true;	// inPt: Point on contour !
 					// continue;
-
 				}
-
 			}
-
 			return	inside;
 
 		}
 
 		const isClockWise = ShapeUtils.isClockWise;
-
 		const subPaths = this.subPaths;
 		if ( subPaths.length === 0 ) return [];
-
 		if ( noHoles === true )	return	toShapesNoHoles( subPaths );
-
-
 		let solid, tmpPath, tmpShape;
 		const shapes = [];
 
 		if ( subPaths.length === 1 ) {
-
 			tmpPath = subPaths[ 0 ];
 			tmpShape = new Shape();
 			tmpShape.curves = tmpPath.curves;
@@ -40289,9 +40185,6 @@ class ShapePath {
 
 		let holesFirst = ! isClockWise( subPaths[ 0 ].getPoints() );
 		holesFirst = isCCW ? ! holesFirst : holesFirst;
-
-		// console.log("Holes first", holesFirst);
-
 		const betterShapeHoles = [];
 		const newShapes = [];
 		let newShapeHoles = [];
@@ -40309,23 +40202,13 @@ class ShapePath {
 			solid = isCCW ? ! solid : solid;
 
 			if ( solid ) {
-
 				if ( ( ! holesFirst ) && ( newShapes[ mainIdx ] ) )	mainIdx ++;
-
 				newShapes[ mainIdx ] = { s: new Shape(), p: tmpPoints };
 				newShapes[ mainIdx ].s.curves = tmpPath.curves;
-
 				if ( holesFirst )	mainIdx ++;
 				newShapeHoles[ mainIdx ] = [];
-
-				//console.log('cw', i);
-
 			} else {
-
 				newShapeHoles[ mainIdx ].push( { h: tmpPath, p: tmpPoints[ 0 ] } );
-
-				//console.log('ccw', i);
-
 			}
 
 		}
@@ -40333,85 +40216,49 @@ class ShapePath {
 		// only Holes? -> probably all Shapes with wrong orientation
 		if ( ! newShapes[ 0 ] )	return	toShapesNoHoles( subPaths );
 
-
 		if ( newShapes.length > 1 ) {
-
 			let ambiguous = false;
 			const toChange = [];
-
 			for ( let sIdx = 0, sLen = newShapes.length; sIdx < sLen; sIdx ++ ) {
-
 				betterShapeHoles[ sIdx ] = [];
-
 			}
 
 			for ( let sIdx = 0, sLen = newShapes.length; sIdx < sLen; sIdx ++ ) {
-
 				const sho = newShapeHoles[ sIdx ];
-
 				for ( let hIdx = 0; hIdx < sho.length; hIdx ++ ) {
-
 					const ho = sho[ hIdx ];
 					let hole_unassigned = true;
-
 					for ( let s2Idx = 0; s2Idx < newShapes.length; s2Idx ++ ) {
-
 						if ( isPointInsidePolygon( ho.p, newShapes[ s2Idx ].p ) ) {
-
 							if ( sIdx !== s2Idx )	toChange.push( { froms: sIdx, tos: s2Idx, hole: hIdx } );
 							if ( hole_unassigned ) {
-
 								hole_unassigned = false;
 								betterShapeHoles[ s2Idx ].push( ho );
-
 							} else {
-
 								ambiguous = true;
-
 							}
-
 						}
-
 					}
-
 					if ( hole_unassigned ) {
-
 						betterShapeHoles[ sIdx ].push( ho );
-
 					}
-
 				}
-
 			}
-			// console.log("ambiguous: ", ambiguous);
-
 			if ( toChange.length > 0 ) {
-
-				// console.log("to change: ", toChange);
 				if ( ! ambiguous )	newShapeHoles = betterShapeHoles;
-
 			}
 
 		}
 
 		let tmpHoles;
-
 		for ( let i = 0, il = newShapes.length; i < il; i ++ ) {
-
 			tmpShape = newShapes[ i ].s;
 			shapes.push( tmpShape );
 			tmpHoles = newShapeHoles[ i ];
-
 			for ( let j = 0, jl = tmpHoles.length; j < jl; j ++ ) {
-
 				tmpShape.holes.push( tmpHoles[ j ].h );
-
 			}
-
 		}
-
-		//console.log("shape", shapes);
-
 		return shapes;
 
 	}

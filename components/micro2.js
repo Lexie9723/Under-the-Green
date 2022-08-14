@@ -2,9 +2,7 @@ let loadMicro2 = 0;
 const maxMicro2 = 1;
 
 function initMicro2() {
-  console.log("load Micro2");
   loadMicro2++;
-  console.log("loadMicro2: ",loadMicro2);
   if (loadMicro2 < maxMicro2) return;
 
 

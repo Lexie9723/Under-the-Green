@@ -12665,7 +12665,6 @@
 		const status = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
 		const log = gl.getShaderInfoLog(shader).trim();
 		if (status && log === '') return ''; // --enable-privileged-webgl-extension
-		// console.log( '**' + type + '**', gl.getExtension( 'WEBGL_debug_shaders' ).getTranslatedShaderSource( shader ) );
 
 		const source = gl.getShaderSource(shader);
 		return 'THREE.WebGLShader: gl.getShaderInfoLog() ' + type + '\n' + log + addLineNumbers(source);
@@ -12736,7 +12735,7 @@
 
 		for (let i = 0; i < n; i++) {
 			const info = gl.getActiveAttrib(program, i);
-			const name = info.name; // console.log( 'THREE.WebGLProgram: ACTIVE VERTEX ATTRIBUTE:', name, i );
+			const name = info.name;
 
 			attributes[name] = gl.getAttribLocation(program, name);
 		}
@@ -12935,8 +12934,7 @@
 		}
 
 		const vertexGlsl = versionString + prefixVertex + vertexShader;
-		const fragmentGlsl = versionString + prefixFragment + fragmentShader; // console.log( '*VERTEX*', vertexGlsl );
-		// console.log( '*FRAGMENT*', fragmentGlsl );
+		const fragmentGlsl = versionString + prefixFragment + fragmentShader;
 
 		const glVertexShader = WebGLShader(gl, gl.VERTEX_SHADER, vertexGlsl);
 		const glFragmentShader = WebGLShader(gl, gl.FRAGMENT_SHADER, fragmentGlsl);
@@ -21531,7 +21529,7 @@
 					// SETUP TNB variables
 					// TODO1 - have a .isClosed in spline?
 
-					splineTube = extrudePath.computeFrenetFrames(steps, false); // console.log(splineTube, 'splineTube', splineTube.normals.length, 'steps', steps, 'extrudePts', extrudePts.length);
+					splineTube = extrudePath.computeFrenetFrames(steps, false);
 
 					binormal = new Vector3();
 					normal = new Vector3();
@@ -21646,12 +21644,10 @@
 						}
 
 						if (direction_eq) {
-							// console.log("Warning: lines are a straight sequence");
 							v_trans_x = -v_prev_y;
 							v_trans_y = v_prev_x;
 							shrink_by = Math.sqrt(v_prev_lensq);
 						} else {
-							// console.log("Warning: lines are a straight spike");
 							v_trans_x = v_prev_x;
 							v_trans_y = v_prev_y;
 							shrink_by = Math.sqrt(v_prev_lensq / 2);
@@ -21665,9 +21661,7 @@
 
 				for (let i = 0, il = contour.length, j = il - 1, k = i + 1; i < il; i++, j++, k++) {
 					if (j === il) j = 0;
-					if (k === il) k = 0; //	(j)---(i)---(k)
-					// console.log('i,j,k', i, j , k)
-
+					if (k === il) k = 0; 
 					contourMovements[i] = getBevelVec(contour[i], contour[j], contour[k]);
 				}
 
@@ -21844,7 +21838,7 @@
 					while (--i >= 0) {
 						const j = i;
 						let k = i - 1;
-						if (k < 0) k = contour.length - 1; //console.log('b', i,j, i-1, k,vertices.length);
+						if (k < 0) k = contour.length - 1;
 
 						for (let s = 0, sl = steps + bevelSegments * 2; s < sl; s++) {
 							const slen1 = vlen * s;
@@ -24967,12 +24961,12 @@
 		enabled: false,
 		files: {},
 		add: function (key, file) {
-			if (this.enabled === false) return; // console.log( 'THREE.Cache', 'Adding key:', key );
+			if (this.enabled === false) return;
 
 			this.files[key] = file;
 		},
 		get: function (key) {
-			if (this.enabled === false) return; // console.log( 'THREE.Cache', 'Checking key:', key );
+			if (this.enabled === false) return;
 
 			return this.files[key];
 		},
@@ -29045,7 +29039,7 @@
 			}
 
 			let holesFirst = !isClockWise(subPaths[0].getPoints());
-			holesFirst = isCCW ? !holesFirst : holesFirst; // console.log("Holes first", holesFirst);
+			holesFirst = isCCW ? !holesFirst : holesFirst;
 
 			const betterShapeHoles = [];
 			const newShapes = [];
@@ -29069,14 +29063,13 @@
 					};
 					newShapes[mainIdx].s.curves = tmpPath.curves;
 					if (holesFirst) mainIdx++;
-					newShapeHoles[mainIdx] = []; //console.log('cw', i);
-				} else {
+					newShapeHoles[mainIdx] = [];
 					newShapeHoles[mainIdx].push({
 						h: tmpPath,
 						p: tmpPoints[0]
-					}); //console.log('ccw', i);
+					});
 				}
-			} // only Holes? -> probably all Shapes with wrong orientation
+			}
 
 
 			if (!newShapes[0]) return toShapesNoHoles(subPaths);
@@ -29117,11 +29110,10 @@
 							betterShapeHoles[sIdx].push(ho);
 						}
 					}
-				} // console.log("ambiguous: ", ambiguous);
+				}
 
 
 				if (toChange.length > 0) {
-					// console.log("to change: ", toChange);
 					if (!ambiguous) newShapeHoles = betterShapeHoles;
 				}
 			}
@@ -29136,7 +29128,7 @@
 				for (let j = 0, jl = tmpHoles.length; j < jl; j++) {
 					tmpShape.holes.push(tmpHoles[j].h);
 				}
-			} //console.log("shape", shapes);
+			}
 
 
 			return shapes;

@@ -4,7 +4,6 @@ offY = 0;
 
 function initAbout() {
     loadAbout++;
-    //   console.log("loadMicro2: ", loadAbout);
     if (loadAbout < maxAbout) return;
     let aboutPageObj = d3.select("#about_page");
     registerScroll("#about_page", (event, isDown) => {
@@ -26,6 +25,7 @@ function initAbout() {
     });
     
     $("#aboutVideo").click(()=>{
+        $("#home_voice").click()
         d3.select("#home3_audio").style("display", "none");
         d3.select("#macro2_audio").style("display", "none");
         d3.select("#about_video")

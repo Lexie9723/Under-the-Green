@@ -4,8 +4,6 @@ function initHome2() {
 	loadHome2++;
 	if (loadHome2 < maxHome2) return;
 	let plantStage = 0;
-	console.log("load Home2");
-
 	let bubbles = [
 		$.ajax({ url: "resource/element_home/Bubble.svg", async: false })
 			.responseText,

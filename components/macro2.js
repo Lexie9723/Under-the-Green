@@ -11,7 +11,6 @@ let palyMacro2Video = function () {
     "ended",
     function () {
       //结束
-      console.log("palyMacro2Video 播放结束");
       playMacro2VideEnded = true;
       elevideo.loop = true;
       elevideo.play();
@@ -33,11 +32,7 @@ function initAnimMacro2() {
 
 function initMacro2() {
   loadMacro2++;
-  console.log("loadMacro2--", loadMacro2);
   if (loadMacro2 < maxMacro2) return;
-
-  console.log("load Macro2");
-
   registerScroll("#svg_macro2", (event, isDown) => {
     if (playMacro2VideEnded) {
       $("#icon-mouse-scroll").fadeOut(500);

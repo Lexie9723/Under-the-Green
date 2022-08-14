@@ -10,11 +10,7 @@ function initAnimMacro1() {
 }
 function initMacro1() {
   loadMacro1++;
-  console.log("loadMacro1--", loadMacro1);
   if (loadMacro1 < maxMacro1) return;
-
-  console.log("load Macro1");
-
   registerScroll("#svg_macro1", (event, isDown) => {
     if (isDown) {
       scrollTo(4, 1000, false);

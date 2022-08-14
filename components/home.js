@@ -6,9 +6,6 @@ let bubbleInited = false
 function initHome() {
     loadHome++;
     if (loadHome < maxHome) return;
-
-    console.log("load Home")
-
     let initial = false;
     let duringInitial = false;
 

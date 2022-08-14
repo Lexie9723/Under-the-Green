@@ -13,8 +13,6 @@ function initMicro3() {
     loadMicro3++;
     if (loadMicro3 < maxMicro3) return;
 
-    console.log("load Micro3");
-
     registerScroll("#svg_micro3", (event, isDown) => {
         if (isDown) {
             scrollTo(9, 1000, false);
