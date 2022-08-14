@@ -18,8 +18,7 @@ function initMicro() {
   const timeline_button = d3.select("#timeline_button_2");
   timeline_button.select("text").text('0');
   let yr = 0;
-  // const range = 30 - 5;
-  const range = 30;
+  const range = 32;
 
   timeline_button.call(
     d3.drag().on("drag", function (e) {
@@ -28,9 +27,12 @@ function initMicro() {
         timeline_button.attr("transform", `translate(0 ${e.y - 370})`);
 
         let newYr = Math.ceil(((e.y - 375) * range) / 360);
-        if (newYr !== yr) {
+        if (newYr > yr) {
+          setYear(newYr, true);
+          timeline_button.select("text").text(`${yr}`);
+        }
+        if (newYr < yr) {
           setYear(newYr);
-          // timeline_button.select("text").text(`${yr + 5}`);
           timeline_button.select("text").text(`${yr}`);
         }
       }
@@ -136,7 +138,7 @@ function initMicro() {
     d3.select('#micro_line')
     .transition()
       .attr("stroke-dasharray", totalLength)
-      .attr("stroke-dashoffset", -Number(totalLength-totalLength/30*yr))
+      .attr("stroke-dashoffset", -Number(totalLength-totalLength/32*yr))
         .attr('opacity',1)
     /*曲线图变化 end*/
 
@@ -173,7 +175,7 @@ function initMicro() {
         .transition()
         .duration(1000)
         .attr("opacity", isDown ? 1 : 0)
-        .attr("transform", "translate(700, 750) scale(0.025)");
+        .attr("transform", "translate(700, 850) scale(0.025)");
     }
     if (yr === 5) {
       d3.select("#micro_litter_2")
@@ -267,24 +269,24 @@ function initMicro() {
     }
     if (isDown) {
       if (yr === 11) {
-        d3.select("#micro_frontrowleaf1")
-          .transition()
-          .duration(1000)
-          .attr("transform", "translate(0, 750)")
-        d3.select("#micro_frontrowleaf1")
-          .transition(500)
-          .delay(1000)
-          .attr("opacity", 0);
+      d3.select("#micro_frontrowleaf1")
+        .transition()
+        .duration(1000)
+        .attr("transform", "translate(0, 750)")
+      d3.select("#micro_frontrowleaf1")
+        .transition(500)
+        .delay(1000)
+        .attr("opacity", 0);
 
-          d3.select("#micro_middlerowbranch4")
-          .transition()
-          .duration(1000)
-          .attr("transform", "translate(0, 750)")
-        d3.select("#micro_middlerowbranch4")
-          .transition(500)
-          .delay(1000)
+      d3.select("#micro_middlerowbranch4")
+        .transition()
+        .duration(1000)
+        .attr("transform", "translate(0, 750)")
+      d3.select("#micro_middlerowbranch4")
+        .transition(500)
+        .delay(1000)
           .attr("opacity", 0);
-      }
+    }
     }
     if (yr === 12) {
       d3.select("#micro_frontrowleaf6")
@@ -315,6 +317,7 @@ function initMicro() {
     }
   }
   registerScroll("#micro", (event, isDown) => {
+    console.log(isDown)
     if (isDown && yr < range) {
       setYear(yr + 1, isDown);
       // timeline_button.select("text").text(`${yr + 5}`);
