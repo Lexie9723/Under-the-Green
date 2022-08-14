@@ -32,7 +32,10 @@ function initAbout() {
     });
     
     $("#aboutVideo").click(()=>{
-        $("#home_voice").click()
+        const audioEle = document.getElementById("backgroud-audio");
+        if (!audioEle.paused) {
+            $("#home_voice").click()
+        }
         d3.select("#home3_audio").style("display", "none");
         d3.select("#macro2_audio").style("display", "none");
         d3.select("#about_video")
