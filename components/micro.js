@@ -317,7 +317,6 @@ function initMicro() {
     }
   }
   registerScroll("#micro", (event, isDown) => {
-    console.log(isDown)
     if (isDown && yr < range) {
       setYear(yr + 1, isDown);
       // timeline_button.select("text").text(`${yr + 5}`);
