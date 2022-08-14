@@ -140,19 +140,63 @@ function initMicro() {
         .attr('opacity',1)
     /*曲线图变化 end*/
 
-    if (yr === 0) {
-      d3.select("#micro_middlerowtrees")
-        .transition()
-        .duration(500)
-        .attr("opacity", 0);
-    }
-    if (yr === 1) {
+    // if (yr === 0) {
+    //   d3.select("#micro_middlerowtrees")
+    //     .transition()
+    //     .duration(500)
+    //     .attr("opacity", 0);
+    // }
+    if (yr >= 1) {
       d3.select("#micro_middlerowtrees")
         .transition()
         .duration(500)
         .attr("opacity", 1);
     }
-    
+    if (yr <= 6) {
+      d3.select("#micro_frontrowleaf" + yr)
+        .transition()
+        .delay(1000)
+        .duration(500)
+        .attr("transform", "translate(0, 0)")
+        .attr("opacity", isDown ? 1 : 0);
+    }
+    if (yr === 3) {
+      d3.select("#micro_litter_1")
+        .attr("transform", "translate(700, 230) scale(0.025)")
+        .transition()
+        .delay(1000)
+        .duration(1000)
+        .attr("opacity", isDown ? 1 : 0);
+    }
+    if (yr >= 12) {
+      d3.select("#micro_litter_1")
+        .transition()
+        .duration(1000)
+        .attr("opacity", isDown ? 1 : 0)
+        .attr("transform", "translate(700, 750) scale(0.025)");
+    }
+    if (yr === 5) {
+      d3.select("#micro_litter_2")
+        .attr("transform", "translate(1200, 180) scale(0.025) rotate(-60)")
+        .transition()
+        .delay(1000)
+        .duration(1000)
+        .attr("opacity", isDown ? 1 : 0);
+    }
+    if (yr >= 7) {
+      d3.select("#micro_litter_2")
+        .transition()
+        .duration(1000)
+        .attr("opacity", 0)
+        .attr("transform", "translate(1200, 750) scale(0.025) rotate(-60)");
+    }
+    if (yr === 18) {
+      d3.select("#micro_litter_3")
+        .transition()
+        .delay(2000)
+        .duration(1000)
+        .attr("opacity", isDown ? 1 : 0);
+    }
     if (yr <= 8) {
       if (yr === 0) {
         d3.select("#micro_text1")
@@ -174,6 +218,11 @@ function initMicro() {
         d3.select("#micro_text" + yr)
           .transition()
           .delay(500)
+          .attr("opacity", 1);
+        d3.select("#micro_litter_2")
+          .transition()
+          .delay(500)
+          .duration(1000)
           .attr("opacity", 1);
       } else {
         if (isDown) {
@@ -206,14 +255,6 @@ function initMicro() {
       d3.select("#micro_middlerowbranch" + yr)
         .transition()
         .duration(500)
-        .attr("opacity", isDown ? 1 : 0);
-    }
-    if (yr <= 6) {
-      d3.select("#micro_frontrowleaf" + yr)
-        .transition()
-        .delay(1000)
-        .duration(500)
-        .attr("transform", "translate(0, 0)")
         .attr("opacity", isDown ? 1 : 0);
     }
     if (yr > 10 && yr <= 16) {

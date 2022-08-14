@@ -28,7 +28,7 @@ function initExperiment() {
     let speed = this.speed;
     if (dist < 50) {
       speed = (dist / 300) * this.speed;
-      let sx = this.destX + Math.random() * 300 - 150;
+      let sx = this.destX + Math.random() * 200 - 100;
       let sy = 550 + Math.random() * 40 - 20 - yr * 20 + 80 + yr * 20;
       this.reset(
         sx,
@@ -76,32 +76,37 @@ function initExperiment() {
   };
   animloop();
 
-  function updateParticles(size) {
+  function updateParticles(year) {
+    size2year = [[22,25,29],[27,25,34],[15,22,33],[11,15,31],[13,21,30],[12,17,27],[9,16,27],[7,14,27],[8,15,26]]
     particles = [];
-    for (let i = 0; i < size; i++) {
-      const ball = i % 3;
-      let sx, sy, dx, dy;
-      dy = 550 + Math.random() * 40 - 20 - yr * 20;
-      if (ball === 0) {
-        dx = 500 + Math.random() * 40 - 20;
-      } else if (ball === 1) {
-        dx = 900 + Math.random() * 40 - 20;
-      } else if (ball === 2) {
-        dx = 1400 + Math.random() * 40 - 20;
+    let sizes = size2year[year]
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < sizes[i]; j++) {
+        // const ball = j % 3;
+        let sx, sy, dx, dy;
+        dy = 550 + Math.random() * 40 - 20 - yr * 20;
+        if (i == 0) {
+          dx = 500 + Math.random() * 40 - 20;
+        } else if (i == 1) {
+          dx = 900 + Math.random() * 40 - 20;
+        } else if (i == 2) {
+          dx = 1400 + Math.random() * 40 - 20;
+        }
+        sx = dx + Math.random() * 200 - 100;
+        sy = dy + 80 + yr * 20;
+        let p = new Particle();
+        p.reset(
+          sx,
+          sy,
+          dx,
+          dy,
+          1 + 2 * Math.random(),
+          Math.random() * 0.03 + 0.09
+        );
+        particles.push(p);
       }
-      sx = dx + Math.random() * 300 - 150;
-      sy = dy + 80 + yr * 20;
-      let p = new Particle();
-      p.reset(
-        sx,
-        sy,
-        dx,
-        dy,
-        1 + 2 * Math.random(),
-        Math.random() * 0.03 + 0.09
-      );
-      particles.push(p);
     }
+    d3.select("#experiment_anima").selectAll("g").remove()
     animaGroup = d3
       .select("#experiment_anima")
       .selectAll("g")
@@ -117,7 +122,7 @@ function initExperiment() {
     });
   }
 
-  updateParticles(30);
+  updateParticles(0);
 
   for (let i = 0; i <= range; i++) {
     $.ajax({
@@ -324,6 +329,7 @@ function initExperiment() {
   );
 
   registerScroll("#experiment", (event, isDown) => {
+    updateParticles(yr)
     if (isDown) {
       if (yr < range) {
         setYear(yr + 1);

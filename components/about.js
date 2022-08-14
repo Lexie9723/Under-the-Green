@@ -12,12 +12,19 @@ function initAbout() {
             if (offY > 1080 - 5700) {
                 offY -= 60;
                 aboutPageObj.attr("transform", `translate(0 ${offY})`);
+                if (offY < -780 && offY > -1080) {
+                    d3.select("#InMacro")
+                        .attr("transform", `translate(0 ${-offY-780})`);
+                }
             }
-
         } else {
             if (offY < 0) {
                 offY += 60;
                 aboutPageObj.attr("transform", `translate(0 ${offY})`);
+                if (offY < -780 && offY > -1080) {
+                    d3.select("#InMacro")
+                        .attr("transform", `translate(0 ${-offY-780})`);
+                }
             } else {
                 scrollTo(10, 1000, false);
             }
