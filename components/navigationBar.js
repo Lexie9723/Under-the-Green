@@ -1,7 +1,7 @@
 let nbShow = true;
 $(document).ready(function () {
 	registerScroll("#widthDiv", (event, isDown) => {
-		// if (Page < 3) return;
+		if (Page < 2) return;
 		if (isDown) {
 			if (Page == 3 || Page == 6 || Page == 10 || Page == 11 ) {
 				showNavigationBar();
