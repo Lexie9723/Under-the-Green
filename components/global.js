@@ -180,7 +180,7 @@ function lockOrientation (orientation) {
     screen.orientation.lock(orientation);
 }
 
-function registerScroll(selected, scrollHandler, sensitive){
+function registerScroll(selected, scrollHandler, sensitive = 20){
     let startPos
     $(selected).bind(wheelEvent, function(event){
         let e = event.originalEvent
