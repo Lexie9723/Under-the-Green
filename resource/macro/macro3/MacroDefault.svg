@@ -382,11 +382,15 @@
         <rect x="904.53" y="789.06" width="32" height="18" transform="translate(498.33 -344.76) rotate(28.8)" style="fill:#05021b"/>
         <text transform="matrix(-0.88, -0.48, 0.48, -0.88, 936.58, 801.09)" style="font-size:14px;fill:#fff;font-family:Arial-ItalicMT, Arial;font-style:italic">2010</text>
     </g>
-    <g id="_2001-2" data-name="2001">
+    <!-- <g id="_2011" data-name="2011">
         <rect x="848.75" y="748.53" width="32" height="18" transform="translate(752.94 -386.65) rotate(43.2)" style="fill:#05021b"/>
         <text transform="translate(879.23 764.08) rotate(-136.8)" style="font-size:14px;fill:#fff;font-family:Arial-ItalicMT, Arial;font-style:italic">20<tspan x="15.57" y="0" style="letter-spacing:-0.07421875em">1</tspan>
             <tspan x="22.32" y="0" style="letter-spacing:-0.00006975446428571428em">1</tspan>
         </text>
+    </g> -->
+    <g id="_2011" data-name="2011">
+        <rect x="848.75" y="748.53" width="32" height="18" transform="translate(752.94 -386.65) rotate(43.2)" style="fill:#05021b"/>
+        <text transform="translate(879.23 764.08) rotate(-136.8)" style="font-size:14px;fill:#fff;font-family:Arial-ItalicMT, Arial;font-style:italic">2011</text>
     </g>
     <g id="_2012" data-name="2012">
         <rect x="804.8" y="695.4" width="32" height="18" transform="translate(975.74 -366.06) rotate(57.6)" style="fill:#05021b"/>
